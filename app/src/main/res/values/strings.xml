@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Travel-taneous</string>
     <string name="title_activity_user_dashboard">UserDashboardActivity</string>
+    <string name="welcome">Welcome</string>
+    <string name="login">Login</string>
+    <string name="create_new_trip">Create new trip</string>
+    <string name="london2020">London2020</string>
+    <string name="create_trip">Create Trip</string>
+    <string name="add_trip_name">add trip name</string>
 </resources>
