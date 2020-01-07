@@ -13,7 +13,7 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     fun newNextClicked(view: View) {
-        val createTripIntent = Intent(this, CreateTripActivity::class.java)
-        startActivity(createTripIntent)
+        val newTripIntent = Intent(this, CreateTripActivity::class.java)
+        startActivity(newTripIntent)
     }
 }
