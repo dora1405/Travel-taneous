@@ -7,4 +7,11 @@
     <string name="london2020">London2020</string>
     <string name="create_trip">Create Trip</string>
     <string name="add_trip_name">add trip name</string>
+    <string name="estimate">Estimate</string>
+    <string name="actual">Actual</string>
+    <string name="trip_overview">Trip Overview</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="esimate">Esimate</string>
 </resources>
