@@ -24,4 +24,9 @@ class EstimateActivity : AppCompatActivity() {
         val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
         startActivity(tripOverviewIntent)
     }
+
+    fun dashboardClicked(view: View) {
+        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        startActivity(dashboardIntent)
+    }
 }

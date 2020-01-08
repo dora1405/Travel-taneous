@@ -19,6 +19,9 @@ class OverviewActivity : AppCompatActivity() {
         val actualIntent = Intent(this, ActualActivity::class.java)
         startActivity(actualIntent)
     }
-
+    fun dashboardClicked(view: View) {
+        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        startActivity(dashboardIntent)
+    }
 
 }

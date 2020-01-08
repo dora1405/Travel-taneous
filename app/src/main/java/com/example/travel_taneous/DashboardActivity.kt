@@ -12,9 +12,9 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
     }
 
-    fun tripNextClicked(view: View) {
-        val viewTripIntent = Intent(this, TripActivity::class.java)
-        startActivity(viewTripIntent)
+    fun estimateClicked(view: View) {
+        val estimateIntent = Intent(this, EstimateActivity::class.java)
+        startActivity(estimateIntent)
     }
     fun newNextClicked(view: View) {
         val newTripIntent = Intent(this, CreateTripActivity::class.java)
