@@ -3,9 +3,8 @@ package com.example.travel_taneous
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.PagerAdapter as PagerAdapter1
 
 class TripActivity : AppCompatActivity() {
 
@@ -13,7 +12,7 @@ class TripActivity : AppCompatActivity() {
     private lateinit var estimateBtn:TextView
     private lateinit var actualBtn:TextView
     private lateinit var overviewBtn:TextView
-    private lateinit var mPagerAdapter: PagerAdapter
+    private lateinit var mPagerViewAdapter: PagerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +23,18 @@ class TripActivity : AppCompatActivity() {
         actualBtn = findViewById(R.id.actualBtn)
         overviewBtn = findViewById(R.id.overviewBtn)
 
-        mPagerAdapter = PagerAdapter(supportFragmentManager)
-        mViewPager.adapter = mPagerAdapter
+        estimateBtn.setOnClickListener {
+            mViewPager.currentItem = 0
+        }
+        actualBtn.setOnClickListener {
+            mViewPager.currentItem = 1
+        }
+        overviewBtn.setOnClickListener {
+            mViewPager.currentItem = 2
+        }
+
+        mPagerViewAdapter = PagerViewAdapter(supportFragmentManager)
+        mViewPager.adapter = mPagerViewAdapter
         mViewPager.offscreenPageLimit = 3
 
         mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
@@ -46,6 +55,8 @@ class TripActivity : AppCompatActivity() {
             }
 
         })
+        mViewPager.currentItem = 0
+
     }
 
 //    private fun changingTabs(position: Int) {
