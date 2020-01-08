@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TripActivity"></activity>
+        <activity android:name=".OverviewActivity"></activity>
+        <activity android:name=".ActualActivity" />
+        <activity android:name=".EstimateActivity" />
+        <activity android:name=".TripActivity" />
         <activity android:name=".CreateTripActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".MainActivity">

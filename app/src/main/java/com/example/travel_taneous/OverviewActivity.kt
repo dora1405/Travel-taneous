@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class TripActivity : AppCompatActivity() {
+class OverviewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_trip)
+        setContentView(R.layout.activity_overview)
     }
     fun estimateClicked(view: View) {
         val estimateIntent = Intent(this, EstimateActivity::class.java)
@@ -20,8 +20,5 @@ class TripActivity : AppCompatActivity() {
         startActivity(actualIntent)
     }
 
-    fun overviewClicked(view: View) {
-        val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
-        startActivity(tripOverviewIntent)
-    }
+
 }
