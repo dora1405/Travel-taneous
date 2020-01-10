@@ -3,7 +3,6 @@
     <string name="title_activity_user_dashboard">UserDashboardActivity</string>
     <string name="welcome">Welcome</string>
     <string name="login">Login</string>
-    <string name="create_new_trip">Create new trip</string>
     <string name="london2020">London2020</string>
     <string name="create_trip">Create Trip</string>
     <string name="add_trip_name">add trip name</string>
@@ -11,4 +10,17 @@
     <string name="estimate">Estimate</string>
     <string name="actual">Actual</string>
     <string name="trip_overview">Trip Overview</string>
+    <string name="create_new_trip">Create new trip</string>
+    <string name="dashboard">dashboard</string>
+    <string name="input_dollar_amount">input dollar amount</string>
+    <string name="lodging">Lodging</string>
+    <string name="transportation">Transportation</string>
+    <string name="meals">Meals</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="unplanned">Unplanned</string>
+    <string name="paychecks_to_save">Paychecks to Save</string>
+    <string name="num">#</string>
+    <string name="how_much_to_save_per_paycheck">How much to save per paycheck</string>
+    <string name="calculate">Calculate</string>
+    <string name="money">$</string>
 </resources>

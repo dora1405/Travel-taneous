@@ -16,8 +16,5 @@ class DashboardActivity : AppCompatActivity() {
         val estimateIntent = Intent(this, EstimateActivity::class.java)
         startActivity(estimateIntent)
     }
-    fun newNextClicked(view: View) {
-        val newTripIntent = Intent(this, CreateTripActivity::class.java)
-        startActivity(newTripIntent)
-    }
+
 }

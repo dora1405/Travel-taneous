@@ -27,7 +27,8 @@
             android:text="@string/estimate"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="OnClick" />
 
         <TextView
             android:id="@+id/actualBtn"
@@ -68,12 +69,9 @@
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="dashboardClicked"
-        android:text="Home"
+        android:text="@string/dashboard"
         android:textColor="@color/colorAccent"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
