@@ -40,21 +40,21 @@ class EstimateActivity : AppCompatActivity() {
     }
 
 
-//    fun actualClicked(view: View) {
-//        val actualIntent = Intent(this, ActualActivity::class.java)
-//        startActivity(actualIntent)
-//    }
-//
-//
-//    fun overviewClicked(view: View) {
-//        val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
-//        startActivity(tripOverviewIntent)
-//    }
-//
-//    fun dashboardClicked(view: View) {
-//        val dashboardIntent = Intent(this, DashboardActivity::class.java)
-//        startActivity(dashboardIntent)
-//    }
+    fun actualClicked(view: View) {
+        val actualIntent = Intent(this, ActualActivity::class.java)
+        startActivity(actualIntent)
+    }
+
+
+    fun overviewClicked(view: View) {
+        val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
+        startActivity(tripOverviewIntent)
+    }
+
+    fun dashboardClicked(view: View) {
+        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        startActivity(dashboardIntent)
+    }
 
     private fun calculateEstimate(){
         val estLodging = estimateLodgingTxt.text.toString().trim()
@@ -65,16 +65,12 @@ class EstimateActivity : AppCompatActivity() {
         val estPaycheck = estimatePaycheckTxt.text.toString().trim()
 
 
-        val ref = FirebaseDatabase.getInstance().reference//getReference("trips")
-//        val estimateId = ref.push().key
+        val ref = FirebaseDatabase.getInstance().reference
 
         val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck)
-//        val estimate = estimateId?.let {Estimate(it, lodging)}
 
-       // if(estimateId != null) {
-            ref.child("trips").setValue(estimate).addOnCompleteListener {
-                Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
-        //    }
+        ref.child("trips").child("London").child("estimate").setValue(estimate).addOnCompleteListener {
+            Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
         }
     }
 }

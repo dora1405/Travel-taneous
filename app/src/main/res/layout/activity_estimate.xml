@@ -93,6 +93,7 @@
             android:ems="10"
             android:hint="@string/money"
             android:inputType="textPersonName"
+            android:textAlignment="textEnd"
             tools:ignore="Autofill,InefficientWeight" />
     </LinearLayout>
 
@@ -123,6 +124,7 @@
             android:ems="10"
             android:hint="@string/money"
             android:inputType="textPersonName"
+            android:textAlignment="textEnd"
             tools:ignore="Autofill,InefficientWeight" />
     </LinearLayout>
 
@@ -154,6 +156,7 @@
             android:ems="10"
             android:hint="@string/money"
             android:inputType="textPersonName"
+            android:textAlignment="textEnd"
             tools:ignore="Autofill" />
     </LinearLayout>
 
@@ -185,6 +188,7 @@
             android:ems="10"
             android:hint="@string/money"
             android:inputType="textPersonName"
+            android:textAlignment="textEnd"
             tools:ignore="Autofill" />
     </LinearLayout>
 
@@ -215,6 +219,7 @@
             android:ems="10"
             android:hint="@string/money"
             android:inputType="textPersonName"
+            android:textAlignment="textEnd"
             tools:ignore="Autofill" />
     </LinearLayout>
 
@@ -246,6 +251,7 @@
             android:ems="10"
             android:hint="@string/num"
             android:inputType="textPersonName"
+            android:textAlignment="textEnd"
             tools:ignore="Autofill" />
     </LinearLayout>
 
