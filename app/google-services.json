@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "215801777390",
+    "firebase_url": "https://travel-taneous.firebaseio.com",
+    "project_id": "travel-taneous",
+    "storage_bucket": "travel-taneous.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215801777390:android:57b521cfcdc248f1a337ff",
+        "android_client_info": {
+          "package_name": "com.example.travel_taneous"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215801777390-lqfcum6nhkmj6as417ocq36qdponc5mb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travel_taneous",
+            "certificate_hash": "65b120bbac333cccc2633ec7b8f643bef83624dc"
+          }
+        },
+        {
+          "client_id": "215801777390-7o155c3hlpglfln086ir4r96puhgr5ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK6-xvnJsqWJCLj-q_crthTVeQCCMvfSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215801777390-7o155c3hlpglfln086ir4r96puhgr5ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
