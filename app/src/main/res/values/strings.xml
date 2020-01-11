@@ -23,4 +23,6 @@
     <string name="how_much_to_save_per_paycheck">How much to save per paycheck</string>
     <string name="calculate">Calculate</string>
     <string name="money">$</string>
+    <string name="textview">TextView</string>
+    <string name="add_dollars">add dollars</string>
 </resources>

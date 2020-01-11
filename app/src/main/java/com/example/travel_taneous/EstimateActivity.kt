@@ -65,10 +65,10 @@ class EstimateActivity : AppCompatActivity() {
         val estPaycheck = estimatePaycheckTxt.text.toString().trim()
 
 
-        if (estLodging.isEmpty()){
-            estimateLodgingTxt.error = "Cannot be empty"
-            return
-        }
+//        if (estLodging.isEmpty()){
+//            estimateLodgingTxt.error = "Cannot be empty"
+//            return
+//        }
 
         val ref = FirebaseDatabase.getInstance().reference
 
