@@ -4,11 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_actual.view.*
 
 class ActualActivity : AppCompatActivity() {
 
@@ -19,6 +17,7 @@ class ActualActivity : AppCompatActivity() {
 //    lateinit var actualUnplanned: TextView
     lateinit var addMoney: EditText
     lateinit var updateBtn: Button
+    lateinit var radioGroup: RadioGroup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +30,15 @@ class ActualActivity : AppCompatActivity() {
 //        actualUnplanned = findViewById(R.id.actualUnplanned)
         addMoney = findViewById(R.id.addMoney)
         updateBtn = findViewById(R.id.updateBtn)
+        radioGroup = findViewById(R.id.radioGroup)
 
+
+
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            if(checkedId == R.id.radioLodging)
+            actualLodging.setText(addMoney.text.toString())
+        }
         updateBtn.setOnClickListener {
             updateTotal()
         }
@@ -55,16 +62,17 @@ class ActualActivity : AppCompatActivity() {
     }
 
     private fun updateTotal(){
-//        val addMoney = addMoney.text.toString().trim()
-        val actLodging = actualLodging
+        val addMoney = addMoney.text.toString().trim()
+        val actLodging = addMoney
 
 
         val ref = FirebaseDatabase.getInstance().reference
 
         val actual = Actual(actLodging)
 
-        ref.child("trips").child("London").child("estimate").setValue(actual).addOnCompleteListener {
-            Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
+
+        ref.child("trips").child("London").child("actual").setValue(actual).addOnCompleteListener {
+            Toast.makeText(applicationContext, "Category Updated", Toast.LENGTH_LONG).show()
         }
     }
 
