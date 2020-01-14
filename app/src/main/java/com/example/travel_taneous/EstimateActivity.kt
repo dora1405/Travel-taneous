@@ -65,8 +65,8 @@ class EstimateActivity : AppCompatActivity() {
         val estEntertain = estimateEntertainmentTxt.text.toString()
         val estUnplanned = estimateUnplanTxt.text.toString()
         val estPaycheck = estimatePaycheckTxt.text.toString()
-        val calculate: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
-        val estSave= estimateSave.setText("$" + calculate).toString()
+        val estSave: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
+        val estShow= estimateSave.setText("$" + estSave).toString()
 
 //        if (estLodging.isEmpty()){
 //            estimateLodgingTxt.error = "Cannot be empty"

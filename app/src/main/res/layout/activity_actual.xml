@@ -216,12 +216,13 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="174dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="151dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="108dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
+        app:layout_constraintTop_toBottomOf="@+id/addMoney">
 
         <RadioButton
             android:id="@+id/radioLodging"
@@ -258,14 +259,13 @@
         android:id="@+id/addMoney"
         android:layout_width="123dp"
         android:layout_height="40dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="144dp"
         android:ems="10"
         android:hint="@string/add_dollars"
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12"
         tools:ignore="Autofill" />
 
@@ -277,8 +277,8 @@
         android:text="@string/common_google_play_services_update_button"
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/addMoney" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
