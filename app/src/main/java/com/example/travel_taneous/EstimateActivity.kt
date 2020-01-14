@@ -19,6 +19,7 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estimateEntertainmentTxt: EditText
     lateinit var estimateUnplanTxt: EditText
     lateinit var estimatePaycheckTxt: EditText
+    lateinit var estimateSave: TextView
     lateinit var calculateBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,7 @@ class EstimateActivity : AppCompatActivity() {
         estimateEntertainmentTxt = findViewById(R.id.estimateEntertainmentTxt)
         estimateUnplanTxt = findViewById(R.id.estimateUnplanTxt)
         estimatePaycheckTxt = findViewById(R.id.estimatePaycheckTxt)
+        estimateSave = findViewById(R.id.estimateSave)
         calculateBtn = findViewById(R.id.calculateBtn)
 
         calculateBtn.setOnClickListener {
@@ -57,13 +59,14 @@ class EstimateActivity : AppCompatActivity() {
     }
 
     private fun calculateEstimate(){
-        val estLodging = estimateLodgingTxt.text.toString().trim()
-        val estTransport = estimateTransportTxt.text.toString().trim()
-        val estMeal = estimateMealTxt.text.toString().trim()
-        val estEntertain = estimateEntertainmentTxt.text.toString().trim()
-        val estUnplanned = estimateUnplanTxt.text.toString().trim()
-        val estPaycheck = estimatePaycheckTxt.text.toString().trim()
-
+        val estLodging = estimateLodgingTxt.text.toString()
+        val estTransport = estimateTransportTxt.text.toString()
+        val estMeal = estimateMealTxt.text.toString()
+        val estEntertain = estimateEntertainmentTxt.text.toString()
+        val estUnplanned = estimateUnplanTxt.text.toString()
+        val estPaycheck = estimatePaycheckTxt.text.toString()
+        val calculate: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
+        val estSave= estimateSave.setText("$" + calculate).toString()
 
 //        if (estLodging.isEmpty()){
 //            estimateLodgingTxt.error = "Cannot be empty"
@@ -72,7 +75,7 @@ class EstimateActivity : AppCompatActivity() {
 
         val ref = FirebaseDatabase.getInstance().reference
 
-        val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck)
+        val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck, estSave)
 
         ref.child("trips").child("London").child("estimate").setValue(estimate).addOnCompleteListener {
             Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()

@@ -18,8 +18,8 @@ class ActualActivity : AppCompatActivity() {
     lateinit var addMoney: EditText
     lateinit var updateBtn: Button
     lateinit var radioGroup: RadioGroup
-    lateinit var test:String
-    lateinit var test2:String
+//    lateinit var test:String
+//    lateinit var test2:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
