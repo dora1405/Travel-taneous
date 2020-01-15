@@ -32,8 +32,6 @@ class EstimateActivity : AppCompatActivity() {
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
     private val TAG = "EstimateActivity"
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_estimate)
@@ -53,13 +51,17 @@ class EstimateActivity : AppCompatActivity() {
         estUnplanView = findViewById(R.id.estUnplanView)
         estPaycheckView = findViewById(R.id.estPaycheckView)
 
-//        val databaseRef = FirebaseDatabase.getInstance().getReference("")
+        database()
+
+        calculateBtn.setOnClickListener {
+            calculateEstimate()
+        }
+
+    }
+
+    fun database() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-//                var t: GenericTypeIndicator<Map<String, Estimate>> = object: GenericTypeIndicator<Map<String, Estimate>>() {}
-//                val value: Map<String, Estimate>? = dataSnapshot.getValue(t)
                 val value = dataSnapshot.getValue(Estimate::class.java)
                 estLodgeView.setText("$" + value?.estLodging.toString())
                 estTransportView.setText("$" + value?.estTransport.toString())
@@ -68,23 +70,11 @@ class EstimateActivity : AppCompatActivity() {
                 estUnplanView.setText("$" + value?.estUnplanned.toString())
                 estPaycheckView.setText(value?.estPaycheck.toString())
                 estimateSave.setText("$" + value?.estSave.toString() + "/paycheck")
-
-//                Log.d(TAG,"Database value is: $value")
-//                var itemList = ArrayList(value?.values!!)
-//                println(itemList)
             }
             override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
-
-
-
-        calculateBtn.setOnClickListener {
-            calculateEstimate()
-        }
-
     }
 
 
@@ -133,8 +123,6 @@ class EstimateActivity : AppCompatActivity() {
         val estSave: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
         val estShow= estimateSave.setText("$" + estSave + "/paycheck").toString()
 
-
-
         val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck, estSave)
 
         ref.setValue(estimate).addOnCompleteListener {
@@ -146,7 +134,6 @@ class EstimateActivity : AppCompatActivity() {
         estimateEntertainmentTxt.text.clear()
         estimateUnplanTxt.text.clear()
         estimatePaycheckTxt.text.clear()
-
     }
 }
 
