@@ -3,13 +3,14 @@ package com.example.travel_taneous
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class EstimateActivity : AppCompatActivity() {
 
@@ -21,6 +22,17 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estimatePaycheckTxt: EditText
     lateinit var estimateSave: TextView
     lateinit var calculateBtn: Button
+    lateinit var estLodgeView: TextView
+    lateinit var estTransportView: TextView
+    lateinit var estMealView: TextView
+    lateinit var estEntertainView: TextView
+    lateinit var estUnplanView: TextView
+    lateinit var estPaycheckView: TextView
+
+    val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
+    private val TAG = "EstimateActivity"
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +46,40 @@ class EstimateActivity : AppCompatActivity() {
         estimatePaycheckTxt = findViewById(R.id.estimatePaycheckTxt)
         estimateSave = findViewById(R.id.estimateSave)
         calculateBtn = findViewById(R.id.calculateBtn)
+        estLodgeView = findViewById(R.id.estLodgeView)
+        estTransportView = findViewById(R.id.estTransportView)
+        estMealView = findViewById(R.id.estMealView)
+        estEntertainView = findViewById(R.id.estEntertainView)
+        estUnplanView = findViewById(R.id.estUnplanView)
+        estPaycheckView = findViewById(R.id.estPaycheckView)
+
+//        val databaseRef = FirebaseDatabase.getInstance().getReference("")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+//                var t: GenericTypeIndicator<Map<String, Estimate>> = object: GenericTypeIndicator<Map<String, Estimate>>() {}
+//                val value: Map<String, Estimate>? = dataSnapshot.getValue(t)
+                val value = dataSnapshot.getValue(Estimate::class.java)
+                estLodgeView.setText("$" + value?.estLodging.toString())
+                estTransportView.setText("$" + value?.estTransport.toString())
+                estMealView.setText("$" + value?.estMeal.toString())
+                estEntertainView.setText("$" + value?.estEntertainment.toString())
+                estUnplanView.setText("$" + value?.estUnplanned.toString())
+                estPaycheckView.setText("$" + value?.estPaycheck.toString())
+                estimateSave.setText("$" + value?.estSave.toString())
+
+//                Log.d(TAG,"Database value is: $value")
+//                var itemList = ArrayList(value?.values!!)
+//                println(itemList)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+
 
         calculateBtn.setOnClickListener {
             calculateEstimate()
@@ -68,47 +114,17 @@ class EstimateActivity : AppCompatActivity() {
         val estSave: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
         val estShow= estimateSave.setText("$" + estSave).toString()
 
-//        if (estLodging.isEmpty()){
-//            estimateLodgingTxt.error = "Cannot be empty"
-//            return
-//        }
 
-        val ref = FirebaseDatabase.getInstance().reference
+//        val ref = FirebaseDatabase.getInstance().reference
 
         val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck, estSave)
 
-        ref.child("trips").child("London").child("estimate").setValue(estimate).addOnCompleteListener {
+        ref.setValue(estimate).addOnCompleteListener {
             Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
         }
+        estimateLodgingTxt.text.clear()
     }
 }
 
 
-//    lateinit var estimateSave: TextView
 
-
-//        estimateSave = findViewById(R.id.estimateSave)
-
-
-
-
-//        if (transport.toInt() < 0){
-//            estimateTransportTxt.error = "Cannot be less than $0"
-//            return
-//        }
-//        if (meal.toInt() < 0){
-//            estimateMealTxt.error = "Cannot be less than $0"
-//            return
-//        }
-//        if (entertain.toInt() < 0){
-//            estimateEntertainmentTxt.error = "Cannot be less than $0"
-//            return
-//        }
-//        if (unplanned.toInt() < 0){
-//            estimateUnplanTxt.error = "Cannot be less than $0"
-//            return
-//        }
-//        if (paycheck.toInt() < 0){
-//            estimatePaycheckTxt.error = "Cannot be less than $0"
-//            return
-//        }
