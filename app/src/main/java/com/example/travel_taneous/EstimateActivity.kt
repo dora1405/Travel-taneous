@@ -66,8 +66,8 @@ class EstimateActivity : AppCompatActivity() {
                 estMealView.setText("$" + value?.estMeal.toString())
                 estEntertainView.setText("$" + value?.estEntertainment.toString())
                 estUnplanView.setText("$" + value?.estUnplanned.toString())
-                estPaycheckView.setText("$" + value?.estPaycheck.toString())
-                estimateSave.setText("$" + value?.estSave.toString())
+                estPaycheckView.setText(value?.estPaycheck.toString())
+                estimateSave.setText("$" + value?.estSave.toString() + "/paycheck")
 
 //                Log.d(TAG,"Database value is: $value")
 //                var itemList = ArrayList(value?.values!!)
@@ -112,7 +112,7 @@ class EstimateActivity : AppCompatActivity() {
         val estUnplanned = estimateUnplanTxt.text.toString()
         val estPaycheck = estimatePaycheckTxt.text.toString()
         val estSave: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
-        val estShow= estimateSave.setText("$" + estSave).toString()
+        val estShow= estimateSave.setText("$" + estSave + "/paycheck").toString()
 
 
 //        val ref = FirebaseDatabase.getInstance().reference
