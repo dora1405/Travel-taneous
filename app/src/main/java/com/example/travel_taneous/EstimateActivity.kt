@@ -105,6 +105,25 @@ class EstimateActivity : AppCompatActivity() {
     }
 
     private fun calculateEstimate(){
+        if (estimateLodgingTxt.text.isNullOrEmpty()){
+            estimateLodgingTxt.setText("0")
+        }
+        if (estimateTransportTxt.text.isNullOrEmpty()){
+            estimateTransportTxt.setText("0")
+        }
+        if (estimateMealTxt.text.isNullOrEmpty()){
+            estimateMealTxt.setText("0")
+        }
+        if (estimateEntertainmentTxt.text.isNullOrEmpty()){
+            estimateEntertainmentTxt.setText("0")
+        }
+        if (estimateUnplanTxt.text.isNullOrEmpty()){
+            estimateUnplanTxt.setText("0")
+        }
+        if (estimatePaycheckTxt.text.isNullOrEmpty()){
+            estimatePaycheckTxt.setText("1")
+        }
+
         val estLodging = estimateLodgingTxt.text.toString()
         val estTransport = estimateTransportTxt.text.toString()
         val estMeal = estimateMealTxt.text.toString()
@@ -115,7 +134,6 @@ class EstimateActivity : AppCompatActivity() {
         val estShow= estimateSave.setText("$" + estSave + "/paycheck").toString()
 
 
-//        val ref = FirebaseDatabase.getInstance().reference
 
         val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck, estSave)
 
@@ -123,6 +141,12 @@ class EstimateActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
         }
         estimateLodgingTxt.text.clear()
+        estimateTransportTxt.text.clear()
+        estimateMealTxt.text.clear()
+        estimateEntertainmentTxt.text.clear()
+        estimateUnplanTxt.text.clear()
+        estimatePaycheckTxt.text.clear()
+
     }
 }
 
