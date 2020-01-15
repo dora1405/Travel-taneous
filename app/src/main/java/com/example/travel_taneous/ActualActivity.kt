@@ -3,9 +3,13 @@ package com.example.travel_taneous
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_actual.view.*
 
 class ActualActivity : AppCompatActivity() {
@@ -20,6 +24,9 @@ class ActualActivity : AppCompatActivity() {
     lateinit var radioGroup: RadioGroup
 //    lateinit var test:String
 //    lateinit var test2:String
+    val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("actual")
+    private val TAG = "EstimateActivity"
+//    lateinit var calc: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +41,17 @@ class ActualActivity : AppCompatActivity() {
         updateBtn = findViewById(R.id.updateBtn)
         radioGroup = findViewById(R.id.radioGroup)
 
-
+        database()
 
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId) {
-                R.id.radioLodging -> actualLodging.setText(addMoney.text.toString())
+//                R.id.radioLodging -> {
+//                    var calc = (actualLodging.text.toString().toInt() + addMoney.text.toString().toInt()).toString()
+//                    actualLodging.setText(calc)
+//                }
+//                R.id.radioLodging -> calc = addMoney.text.toString()
+                R.id.radioLodging -> actualLodging.setText((addMoney.text.toString()))
                 R.id.radioTransport -> actualTransport.setText(addMoney.text.toString())
                 R.id.radioMeal -> actualMeal.setText(addMoney.text.toString())
                 R.id.radioEntertain -> actualEntertainment.setText(addMoney.text.toString())
@@ -52,6 +64,22 @@ class ActualActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun database() {
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val value = dataSnapshot.getValue(Actual::class.java)
+                actualLodging.setText("$" + value?.actLodging.toString())
+                actualTransport.setText("$" + value?.actTransport.toString())
+                actualMeal.setText("$" + value?.actMeal.toString())
+                actualEntertainment.setText("$" + value?.actEntertainment.toString())
+                actualUnplanned.setText("$" + value?.actUnplanned.toString())
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
     }
     fun estimateClicked(view: View) {
         val estimateIntent = Intent(this, EstimateActivity::class.java)
@@ -72,6 +100,7 @@ class ActualActivity : AppCompatActivity() {
 
     private fun updateTotal(){
 //        val addMoney = addMoney.text.toString().trim()
+//        val actLodging = (actualLodging.text.toString().toInt() + calc.toInt()).toString()
         val actLodging = actualLodging.text.toString()
         val actTransportation = actualTransport.text.toString()
         val actMeal = actualMeal.text.toString()
@@ -79,12 +108,12 @@ class ActualActivity : AppCompatActivity() {
         val actUnplanned = actualUnplanned.text.toString()
 
 
-        val ref = FirebaseDatabase.getInstance().reference
+//        val ref = FirebaseDatabase.getInstance().reference
 
         val actual = Actual(actLodging, actTransportation, actMeal, actEntertainment, actUnplanned)
 
 
-        ref.child("trips").child("London").child("actual").setValue(actual).addOnCompleteListener {
+        ref.setValue(actual).addOnCompleteListener {
             Toast.makeText(applicationContext, "Category Updated", Toast.LENGTH_LONG).show()
         }
     }
