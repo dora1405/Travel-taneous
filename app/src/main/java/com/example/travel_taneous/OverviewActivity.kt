@@ -19,10 +19,19 @@ import org.w3c.dom.Text
 
 class OverviewActivity : AppCompatActivity() {
 
-    lateinit var testBool: TextView //if E>A -> under
-    lateinit var testNum: TextView //calculate
-    lateinit var testE: String
-    lateinit var testA: String
+    lateinit var lodgeFinal: TextView //if E>A -> under
+    lateinit var lodgePercent: TextView //calculate
+    lateinit var lodgeE: String
+    lateinit var lodgeA: String
+    lateinit var transportFinal: TextView
+    lateinit var transportPercent: TextView
+    lateinit var transportE: String
+    lateinit var transportA: String
+    lateinit var mealFinal: TextView
+    lateinit var mealPercent: TextView
+    lateinit var mealE: String
+    lateinit var mealA: String
+
 
 
 
@@ -34,10 +43,13 @@ class OverviewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
-//        testE = findViewById(R.id.testE)
-//        testA = findViewById(R.id.testA)
-        testBool = findViewById(R.id.testBool)
-        testNum = findViewById(R.id.testNum)
+
+        lodgeFinal = findViewById(R.id.lodgeFinal)
+        lodgePercent = findViewById(R.id.lodgePercent)
+        transportFinal = findViewById(R.id.transportFinal)
+        transportPercent = findViewById(R.id.transportPercent)
+        mealFinal = findViewById(R.id.mealFinal)
+        mealPercent = findViewById(R.id.mealPercent)
 
         dataCall()
 
@@ -54,19 +66,45 @@ class OverviewActivity : AppCompatActivity() {
 
     private suspend fun setTextonMainThread() {
         withContext(Main) {
-            var a = testA.toInt()
-            var e = testE.toInt()
+            var logEst = lodgeE.toInt()
+            var logAct = lodgeA.toInt()
+            var tnpEst = transportE.toInt()
+            var tnpAct = transportA.toInt()
+            var mlEst = mealE.toInt()
+            var mlAct = mealA.toInt()
 
-            if(testE.toInt() > testA.toInt()) {
-                testBool.text = "Under"
-                testNum.text = (((e-a)/e)*100).toString() + "%"
+            if(logEst > logAct) {
+                lodgeFinal.text = "Under"
+                lodgePercent.text = (((logEst-logAct)/logEst)*100).toString() + "%"
+            } else if((logEst < logAct)) {
+                lodgeFinal.text = "Over"
+                lodgePercent.text = (((logAct-logEst)/logEst)*100).toString() + "%"
             } else {
-                testBool.text = "Over"
-                testNum.text = (((a-e)/e)*100).toString() + "%"
-
-
+                lodgeFinal.text = "On Budget"
+                lodgePercent.text = ""
             }
 
+            if(tnpEst > tnpAct) {
+                transportFinal.text = "Under"
+                transportPercent.text = (((tnpEst-tnpAct)/tnpEst)*100).toString() + "%"
+            } else if((logEst < logAct)) {
+                transportFinal.text = "Over"
+                transportPercent.text = (((tnpAct-tnpEst)/tnpEst)*100).toString() + "%"
+            } else {
+                transportFinal.text = "On Budget"
+                transportPercent.text = ""
+            }
+
+            if(mlEst > mlAct) {
+                mealFinal.text = "Under"
+                mealPercent.text = (((mlEst-mlAct)/mlEst)*100).toString() + "%"
+            } else if((logEst < logAct)) {
+                mealFinal.text = "Over"
+                mealPercent.text = (((mlAct-mlEst)/mlEst)*100).toString() + "%"
+            } else {
+                mealFinal.text = "On Budget"
+                mealPercent.text = ""
+            }
         }
     }
 
@@ -74,7 +112,9 @@ class OverviewActivity : AppCompatActivity() {
         refEst.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)
-                testE = value?.estLodging.toString()
+                lodgeE = value?.estLodging.toString()
+                transportE = value?.estTransport.toString()
+                mealE = value?.estMeal.toString()
 
             }
             override fun onCancelled(error: DatabaseError) {
@@ -89,7 +129,9 @@ class OverviewActivity : AppCompatActivity() {
         refAct.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Actual::class.java)
-                testA = value?.actLodging.toString()
+                lodgeA = value?.actLodging.toString()
+                transportA = value?.actTransport.toString()
+                mealA = value?.actMeal.toString()
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read actual value.", error.toException())
