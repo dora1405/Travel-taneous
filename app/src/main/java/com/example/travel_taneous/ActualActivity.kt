@@ -70,11 +70,11 @@ class ActualActivity : AppCompatActivity() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Actual::class.java)
-                actualLodging.setText("$" + value?.actLodging.toString())
-                actualTransport.setText("$" + value?.actTransport.toString())
-                actualMeal.setText("$" + value?.actMeal.toString())
-                actualEntertainment.setText("$" + value?.actEntertainment.toString())
-                actualUnplanned.setText("$" + value?.actUnplanned.toString())
+                actualLodging.setText(value?.actLodging.toString())
+                actualTransport.setText(value?.actTransport.toString())
+                actualMeal.setText(value?.actMeal.toString())
+                actualEntertainment.setText(value?.actEntertainment.toString())
+                actualUnplanned.setText(value?.actUnplanned.toString())
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read value.", error.toException())

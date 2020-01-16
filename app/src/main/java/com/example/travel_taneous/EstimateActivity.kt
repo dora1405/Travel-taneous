@@ -60,6 +60,7 @@ class EstimateActivity : AppCompatActivity() {
     }
 
     fun database() {
+
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)

@@ -10,14 +10,21 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.w3c.dom.Text
 
 class OverviewActivity : AppCompatActivity() {
 
     lateinit var testBool: TextView //if E>A -> under
     lateinit var testNum: TextView //calculate
-    lateinit var testE: TextView //estLodge
-    lateinit var testA: TextView //actLodge
+    lateinit var testE: String
+    lateinit var testA: String
+
+
 
     val refEst = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
     val refAct = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("actual")
@@ -27,49 +34,87 @@ class OverviewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
+//        testE = findViewById(R.id.testE)
+//        testA = findViewById(R.id.testA)
+        testBool = findViewById(R.id.testBool)
+        testNum = findViewById(R.id.testNum)
 
-        //function to calc
-        calc()
+        dataCall()
+
 
     }
 
-    fun calc() {
-        //get est and act
-        dbEst()
-        dbAct()
+    private fun dataCall() {
+        CoroutineScope(IO).launch {
+            dbEst()
+            dbAct()
+            setTextonMainThread()
+        }
+    }
 
-        if(testE.text.toString().toInt() > testA.text.toString().toInt()) {
-            testBool.setText("Under Budget")
-        } else {
-            testBool.setText("Over Budget")
+    private suspend fun setTextonMainThread() {
+        withContext(Main) {
+            var a = testA.toInt()
+            var e = testE.toInt()
+
+            if(testE.toInt() > testA.toInt()) {
+                testBool.text = "Under"
+                testNum.text = (((e-a)/e)*100).toString() + "%"
+            } else {
+                testBool.text = "Over"
+                testNum.text = (((a-e)/e)*100).toString() + "%"
+
+
+            }
 
         }
-
     }
 
-    fun dbEst() {
+    private suspend fun dbEst() {
         refEst.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)
-                testE.setText("$" + value?.estLodging.toString())
+                testE = value?.estLodging.toString()
+
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read estimate value.", error.toException())
             }
         })
-    }
 
-    fun dbAct(){
+
+    }
+//
+    private suspend fun dbAct(){
         refAct.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Actual::class.java)
-                testA.setText("$" + value?.actLodging.toString())
+                testA = value?.actLodging.toString()
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read actual value.", error.toException())
             }
         })
     }
+
+//    fun calc() {
+//        get est and act
+//        dbEst()
+//        dbAct()
+
+//        testBool.setText(testE.text.toString())
+//        testBool.text = (testE.text.toString())
+
+
+//        testBool.setText(est)
+//        if(est.toInt() > 0) {
+//            testBool.setText("Under Budget").toString()
+//        } else {
+//            testBool.setText("Over Budget")
+//
+//        }
+
+//    }
 
     fun estimateClicked(view: View) {
         val estimateIntent = Intent(this, EstimateActivity::class.java)
