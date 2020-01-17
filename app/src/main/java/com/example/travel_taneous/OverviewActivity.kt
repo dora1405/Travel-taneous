@@ -54,7 +54,6 @@ class OverviewActivity : AppCompatActivity() {
         println("I got both estimate: ${trip.estL} and Actual: ${trip.actL}")
         val lodgeE = trip.estL.toFloat()
         val lodgeA = trip.actL.toFloat()
-
         if(lodgeE > lodgeA) {
             lodgeFinal.setText("Under Budget")
             lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toInt().toString() + "%"
@@ -79,6 +78,44 @@ class OverviewActivity : AppCompatActivity() {
             transportPercent.text = ""
         }
 
+        val mealE = trip.estM.toFloat()
+        val mealA = trip.actM.toFloat()
+        if(mealE > mealA) {
+            mealFinal.setText("Under Budget")
+            mealPercent.text = ("%.2f".format(((mealE - mealA)/mealE) * 100).toDouble()).toInt().toString() + "%"
+        } else if (mealE < mealA) {
+            mealFinal.setText("Over Budget")
+            mealPercent.text = ("%.2f".format(((mealE - mealA)/mealE) * 100).toDouble()).toInt().toString() + "%"
+        } else {
+            mealFinal.setText("On Budget")
+            mealPercent.text = ""
+        }
+
+        val entertainE = trip.estE.toFloat()
+        val entertainA = trip.actE.toFloat()
+        if(entertainE > entertainA) {
+            entertainFinal.setText("Under Budget")
+            entertainPercent.text = ("%.2f".format(((entertainE - entertainA)/entertainE) * 100).toDouble()).toInt().toString() + "%"
+        } else if (entertainE < entertainA) {
+            entertainFinal.setText("Over Budget")
+            entertainPercent.text = ("%.2f".format(((entertainE - entertainA)/entertainE) * 100).toDouble()).toInt().toString() + "%"
+        } else {
+            entertainFinal.setText("On Budget")
+            entertainPercent.text = ""
+        }
+
+        val unplanE = trip.estU.toFloat()
+        val unplanA = trip.actU.toFloat()
+        if(unplanE > unplanA) {
+            unplanFinal.setText("Under Budget")
+            unplanPercent.text = ("%.2f".format(((unplanE - unplanA)/unplanE) * 100).toDouble()).toInt().toString() + "%"
+        } else if (unplanE < unplanA) {
+            unplanFinal.setText("Over Budget")
+            unplanPercent.text = ("%.2f".format(((unplanE - unplanA)/unplanE) * 100).toDouble()).toInt().toString() + "%"
+        } else {
+            unplanFinal.setText("On Budget")
+            unplanPercent.text = ""
+        }
     }
 
 

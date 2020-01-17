@@ -28,9 +28,8 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estEntertainView: TextView
     lateinit var estUnplanView: TextView
     lateinit var estPaycheckView: TextView
-    lateinit var trip: Trip
 
-
+    var trip = Trip("", "", "", "", "", "", "", "", "", "")
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
     private val TAG = "EstimateActivity"
 
@@ -85,8 +84,11 @@ class EstimateActivity : AppCompatActivity() {
     fun actualClicked(view: View) {
         trip.estL = estLodgeView.text.toString()
         trip.estT = estTransportView.text.toString()
+        trip.estM = estMealView.text.toString()
+        trip.estE = estEntertainView.text.toString()
+        trip.estU = estUnplanView.text.toString()
 
-        println("ESTIMATE is ${trip.estL}")
+        println("ESTIMATE is ${trip.estT}")
 //        println("${estLodgeView.text}")
         if(trip.estL != null && trip.estL != "") {
             val actualIntent = Intent(this, ActualActivity::class.java)

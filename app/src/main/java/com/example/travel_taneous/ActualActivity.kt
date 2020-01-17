@@ -84,7 +84,11 @@ class ActualActivity : AppCompatActivity() {
     fun overviewClicked(view: View) {
         trip.actL = actualLodging.text.toString()
         trip.actT = actualTransport.text.toString()
-        println("ACTUAL is ${trip.actL}")
+        trip.actM = actualMeal.text.toString()
+        trip.actE = actualEntertainment.text.toString()
+        trip.actU = actualUnplanned.text.toString()
+
+        println("ACTUAL is ${trip.actT}")
         if(trip.actL != null && trip.actL != "") {
             val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
             tripOverviewIntent.putExtra(EXTRA_TRIP, trip)
