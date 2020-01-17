@@ -22,9 +22,8 @@ class ActualActivity : AppCompatActivity() {
     lateinit var addMoney: EditText
     lateinit var updateBtn: Button
     lateinit var radioGroup: RadioGroup
+    lateinit var trip: Trip
 
-    var estimate = ""
-    var actual = ""
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("actual")
     private val TAG = "EstimateActivity"
 
@@ -32,7 +31,7 @@ class ActualActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actual)
 
-        estimate = intent.getStringExtra(EXTRA)
+        trip = intent.getParcelableExtra(EXTRA_TRIP)
 //        println("this is $receive")
 
         actualLodging = findViewById(R.id.actualLodging)
@@ -82,12 +81,11 @@ class ActualActivity : AppCompatActivity() {
 
 
     fun overviewClicked(view: View) {
-        actual = actualLodging.text.toString()
-        println("ACTUAL is $actual")
-        if(actual != null && actual != "") {
+        trip.actual = actualLodging.text.toString()
+        println("ACTUAL is ${trip.actual}")
+        if(trip.actual != null && trip.actual != "") {
             val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
-            tripOverviewIntent.putExtra(EXTRA, estimate)
-            tripOverviewIntent.putExtra(EXTRA_ACT, actual)
+            tripOverviewIntent.putExtra(EXTRA_TRIP, trip)
             startActivity(tripOverviewIntent)
         } else {
             Toast.makeText(applicationContext, "Still Unpacking", Toast.LENGTH_LONG).show()

@@ -37,12 +37,11 @@ class OverviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
 
-        val estimate = intent.getStringExtra(EXTRA)
-        val actual = intent.getStringExtra(EXTRA_ACT)
+        val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
 
-        println("I got both estimate: $estimate and Actual: $actual")
-        val estnum = estimate.toInt()
-        val actnum = actual.toInt()
+        println("I got both estimate: ${trip.estimate} and Actual: ${trip.actual}")
+        val estnum = trip.estimate.toInt()
+        val actnum = trip.actual.toInt()
         val diff = actnum - estnum
         println("$actnum - $estnum = $diff")
 
