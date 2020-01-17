@@ -38,14 +38,6 @@ class OverviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
 
-        val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
-
-        println("I got both estimate: ${trip.estimate} and Actual: ${trip.actual}")
-        val lodgeE = trip.estimate.toFloat()
-        val lodgeA = trip.actual.toFloat()
-        lodgeCalc = "%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()
-        println("$lodgeCalc")
-
         lodgeFinal = findViewById(R.id.lodgeFinal)
         lodgePercent = findViewById(R.id.lodgePercent)
         transportFinal = findViewById(R.id.transportFinal)
@@ -57,7 +49,20 @@ class OverviewActivity : AppCompatActivity() {
         unplanFinal = findViewById(R.id.unplanFinal)
         unplanPercent = findViewById(R.id.unplanPercent)
 
+        val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
 
+        println("I got both estimate: ${trip.estL} and Actual: ${trip.actL}")
+        val lodgeE = trip.estL.toFloat()
+        val lodgeA = trip.actL.toFloat()
+
+        if(lodgeE > lodgeA) {
+            lodgeFinal.setText("Under Budget")
+            lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toString()
+        }
+
+
+        lodgeCalc = "%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()
+        println("$lodgeCalc")
 
 
     }

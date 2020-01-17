@@ -82,11 +82,11 @@ class EstimateActivity : AppCompatActivity() {
 
 
     fun actualClicked(view: View) {
-        trip.estimate = estLodgeView.text.toString()
+        trip.estL = estLodgeView.text.toString()
 
-        println("ESTIMATE is ${trip.estimate}")
+        println("ESTIMATE is ${trip.estL}")
 //        println("${estLodgeView.text}")
-        if(trip.estimate != "") {
+        if(trip.estL != null && trip.estL != "") {
             val actualIntent = Intent(this, ActualActivity::class.java)
             actualIntent.putExtra(EXTRA_TRIP, trip)
             startActivity(actualIntent)

@@ -3,7 +3,7 @@ package com.example.travel_taneous
 import android.os.Parcel
 import android.os.Parcelable
 
-class Trip constructor(var estimate:String, var actual:String) : Parcelable {
+class Trip constructor(var estL:String, var actL:String) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!
@@ -11,8 +11,8 @@ class Trip constructor(var estimate:String, var actual:String) : Parcelable {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(estimate)
-        parcel.writeString(actual)
+        parcel.writeString(estL)
+        parcel.writeString(actL)
     }
 
     override fun describeContents(): Int {
