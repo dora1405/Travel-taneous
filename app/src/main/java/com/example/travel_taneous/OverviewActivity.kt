@@ -57,7 +57,13 @@ class OverviewActivity : AppCompatActivity() {
 
         if(lodgeE > lodgeA) {
             lodgeFinal.setText("Under Budget")
-            lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toString()
+            lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toInt().toString() + "%"
+        } else if (lodgeE < lodgeA) {
+            lodgeFinal.setText("Over Budget")
+            lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toInt().toString() + "%"
+        } else {
+            lodgeFinal.setText("On Budget")
+            lodgePercent.text = ""
         }
 
 
