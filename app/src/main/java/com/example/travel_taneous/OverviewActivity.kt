@@ -12,8 +12,9 @@ class OverviewActivity : AppCompatActivity() {
 
     lateinit var lodgeFinal: TextView //if E>A -> under
     lateinit var lodgePercent: TextView //calculate
-    lateinit var lodgeE: String
-    lateinit var lodgeA: String
+//    val lodgeE: Number
+//    lateinit var lodgeA: Number
+    lateinit var lodgeCalc: Number
     lateinit var transportFinal: TextView
     lateinit var transportPercent: TextView
     lateinit var transportE: String
@@ -40,10 +41,10 @@ class OverviewActivity : AppCompatActivity() {
         val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
 
         println("I got both estimate: ${trip.estimate} and Actual: ${trip.actual}")
-        val estnum = trip.estimate.toInt()
-        val actnum = trip.actual.toInt()
-        val diff = actnum - estnum
-        println("$actnum - $estnum = $diff")
+        val lodgeE = trip.estimate.toFloat()
+        val lodgeA = trip.actual.toFloat()
+        lodgeCalc = "%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()
+        println("$lodgeCalc")
 
         lodgeFinal = findViewById(R.id.lodgeFinal)
         lodgePercent = findViewById(R.id.lodgePercent)
@@ -55,6 +56,7 @@ class OverviewActivity : AppCompatActivity() {
         entertainPercent = findViewById(R.id.entertainPercent)
         unplanFinal = findViewById(R.id.unplanFinal)
         unplanPercent = findViewById(R.id.unplanPercent)
+
 
 
 
