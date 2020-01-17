@@ -28,8 +28,9 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estEntertainView: TextView
     lateinit var estUnplanView: TextView
     lateinit var estPaycheckView: TextView
+    lateinit var trip: Trip
 
-    var trip = Trip("", "")
+
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
     private val TAG = "EstimateActivity"
 
@@ -66,10 +67,10 @@ class EstimateActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)
                 estLodgeView.setText(value?.estLodging.toString())
-                estTransportView.setText("$" + value?.estTransport.toString())
-                estMealView.setText("$" + value?.estMeal.toString())
-                estEntertainView.setText("$" + value?.estEntertainment.toString())
-                estUnplanView.setText("$" + value?.estUnplanned.toString())
+                estTransportView.setText(value?.estTransport.toString())
+                estMealView.setText(value?.estMeal.toString())
+                estEntertainView.setText(value?.estEntertainment.toString())
+                estUnplanView.setText(value?.estUnplanned.toString())
                 estPaycheckView.setText(value?.estPaycheck.toString())
                 estimateSave.setText("$" + value?.estSave.toString() + "/paycheck")
             }
@@ -83,6 +84,7 @@ class EstimateActivity : AppCompatActivity() {
 
     fun actualClicked(view: View) {
         trip.estL = estLodgeView.text.toString()
+        trip.estT = estTransportView.text.toString()
 
         println("ESTIMATE is ${trip.estL}")
 //        println("${estLodgeView.text}")

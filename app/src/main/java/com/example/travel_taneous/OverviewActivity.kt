@@ -66,10 +66,18 @@ class OverviewActivity : AppCompatActivity() {
             lodgePercent.text = ""
         }
 
-
-        lodgeCalc = "%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()
-        println("$lodgeCalc")
-
+        val transportE = trip.estT.toFloat()
+        val transportA = trip.actT.toFloat()
+        if(transportE > transportA) {
+            transportFinal.setText("Under Budget")
+            transportPercent.text = ("%.2f".format(((transportE - transportA)/transportE) * 100).toDouble()).toInt().toString() + "%"
+        } else if (transportE < transportA) {
+            transportFinal.setText("Over Budget")
+            transportPercent.text = ("%.2f".format(((transportE - transportA)/transportE) * 100).toDouble()).toInt().toString() + "%"
+        } else {
+            transportFinal.setText("On Budget")
+            transportPercent.text = ""
+        }
 
     }
 

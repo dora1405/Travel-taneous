@@ -34,6 +34,7 @@ class ActualActivity : AppCompatActivity() {
         trip = intent.getParcelableExtra(EXTRA_TRIP)
 //        println("this is $receive")
 
+
         actualLodging = findViewById(R.id.actualLodging)
         actualTransport = findViewById(R.id.actualTransport)
         actualMeal = findViewById(R.id.actualMeal)
@@ -82,6 +83,7 @@ class ActualActivity : AppCompatActivity() {
 
     fun overviewClicked(view: View) {
         trip.actL = actualLodging.text.toString()
+        trip.actT = actualTransport.text.toString()
         println("ACTUAL is ${trip.actL}")
         if(trip.actL != null && trip.actL != "") {
             val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
