@@ -26,4 +26,6 @@
     <string name="textview">TextView</string>
     <string name="add_dollars">add dollars</string>
     <string name="esthint">$ enter</string>
+    <string name="back"><![CDATA[<- dashboard]]></string>
+    <string name="cost"><![CDATA[actual cost ->]]></string>
 </resources>

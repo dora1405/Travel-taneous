@@ -29,6 +29,7 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estUnplanView: TextView
     lateinit var estPaycheckView: TextView
 
+    var estimate = ""
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
     private val TAG = "EstimateActivity"
 
@@ -64,7 +65,7 @@ class EstimateActivity : AppCompatActivity() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)
-                estLodgeView.setText("$" + value?.estLodging.toString())
+                estLodgeView.setText(value?.estLodging.toString())
                 estTransportView.setText("$" + value?.estTransport.toString())
                 estMealView.setText("$" + value?.estMeal.toString())
                 estEntertainView.setText("$" + value?.estEntertainment.toString())
@@ -76,19 +77,25 @@ class EstimateActivity : AppCompatActivity() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+
     }
 
 
     fun actualClicked(view: View) {
-        val actualIntent = Intent(this, ActualActivity::class.java)
-        startActivity(actualIntent)
+        estimate = estLodgeView.text.toString()
+
+        println("ESTIMATE is $estimate")
+//        println("${estLodgeView.text}")
+        if(estimate != null && estimate != "") {
+            val actualIntent = Intent(this, ActualActivity::class.java)
+            actualIntent.putExtra(EXTRA, estimate)
+            startActivity(actualIntent)
+        } else {
+            Toast.makeText(applicationContext, "Still Packing", Toast.LENGTH_LONG).show()
+        }
+
     }
 
-
-    fun overviewClicked(view: View) {
-        val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
-        startActivity(tripOverviewIntent)
-    }
 
     fun dashboardClicked(view: View) {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)

@@ -22,15 +22,18 @@ class ActualActivity : AppCompatActivity() {
     lateinit var addMoney: EditText
     lateinit var updateBtn: Button
     lateinit var radioGroup: RadioGroup
-//    lateinit var test:String
-//    lateinit var test2:String
+
+    var estimate = ""
+    var actual = ""
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("actual")
     private val TAG = "EstimateActivity"
-//    lateinit var calc: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actual)
+
+        estimate = intent.getStringExtra(EXTRA)
+//        println("this is $receive")
 
         actualLodging = findViewById(R.id.actualLodging)
         actualTransport = findViewById(R.id.actualTransport)
@@ -46,11 +49,6 @@ class ActualActivity : AppCompatActivity() {
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId) {
-//                R.id.radioLodging -> {
-//                    var calc = (actualLodging.text.toString().toInt() + addMoney.text.toString().toInt()).toString()
-//                    actualLodging.setText(calc)
-//                }
-//                R.id.radioLodging -> calc = addMoney.text.toString()
                 R.id.radioLodging -> actualLodging.setText((addMoney.text.toString()))
                 R.id.radioTransport -> actualTransport.setText(addMoney.text.toString())
                 R.id.radioMeal -> actualMeal.setText(addMoney.text.toString())
@@ -81,21 +79,23 @@ class ActualActivity : AppCompatActivity() {
             }
         })
     }
-    fun estimateClicked(view: View) {
-        val estimateIntent = Intent(this, EstimateActivity::class.java)
-        startActivity(estimateIntent)
-    }
 
 
     fun overviewClicked(view: View) {
-        val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
-        startActivity(tripOverviewIntent)
+        actual = actualLodging.text.toString()
+        println("ACTUAL is $actual")
+        if(actual != null && actual != "") {
+            val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
+            tripOverviewIntent.putExtra(EXTRA, estimate)
+            tripOverviewIntent.putExtra(EXTRA_ACT, actual)
+            startActivity(tripOverviewIntent)
+        } else {
+            Toast.makeText(applicationContext, "Still Unpacking", Toast.LENGTH_LONG).show()
+
+        }
+
     }
 
-    fun dashboardClicked(view: View) {
-        val dashboardIntent = Intent(this, DashboardActivity::class.java)
-        startActivity(dashboardIntent)
-    }
 
 
     private fun updateTotal(){
