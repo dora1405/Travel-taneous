@@ -34,14 +34,32 @@
         android:id="@+id/estimateLodgingTxt"
         android:layout_width="126dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="24"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="@string/esthint"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="Autofill,InefficientWeight" />
+
+    <EditText
+        android:id="@+id/estimateTransportTxt"
+        android:layout_width="126dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/esthint"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="Autofill,InefficientWeight" />
 
     <LinearLayout
@@ -95,7 +113,7 @@
         android:layout_width="165dp"
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="24"
         android:gravity="center_vertical"
         android:text="@string/lodging"
         android:textAlignment="textStart"
@@ -181,9 +199,9 @@
         android:hint="# paychecks"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        tools:layout_editor_absoluteX="181dp" />
 
     <EditText
         android:id="@+id/estimateUnplanTxt"
@@ -195,71 +213,70 @@
         android:hint="@string/esthint"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        tools:layout_editor_absoluteX="181dp" />
 
     <TextView
         android:id="@+id/estLodgeView"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="33dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24"
         android:gravity="center_vertical"
+        android:text="$"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toEndOf="@+id/estimateLodgingTxt"
+        app:layout_constraintEnd_toStartOf="@+id/estimateLodgingTxt"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/estTransportView"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
+        android:text="$"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/estimateTransportTxt"
+        app:layout_constraintEnd_toStartOf="@+id/estimateTransportTxt"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/estMealView"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
+        android:text="$"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/estimateMealTxt"
+        app:layout_constraintEnd_toStartOf="@+id/estimateMealTxt"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/estEntertainView"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
+        android:text="$"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
-        app:layout_constraintStart_toEndOf="@+id/estimateEntertainmentTxt"
+        app:layout_constraintEnd_toStartOf="@+id/estimateEntertainmentTxt"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/estUnplanView"
-        android:layout_width="75dp"
+        android:layout_width="15dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
+        android:text="$"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -269,11 +286,12 @@
 
     <TextView
         android:id="@+id/estPaycheckView"
-        android:layout_width="75dp"
+        android:layout_width="15dp"
         android:layout_height="33dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
+        android:text="$"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -286,12 +304,13 @@
         android:layout_width="126dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="@string/esthint"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="Autofill" />
 
@@ -300,28 +319,15 @@
         android:layout_width="126dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="@string/esthint"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="Autofill" />
-
-    <EditText
-        android:id="@+id/estimateTransportTxt"
-        android:layout_width="126dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/esthint"
-        android:inputType="textPersonName"
-        android:textAlignment="textStart"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:ignore="Autofill,InefficientWeight" />
 
     <LinearLayout
         android:layout_width="0dp"
