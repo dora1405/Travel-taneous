@@ -22,12 +22,12 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estimatePaycheckTxt: EditText
     lateinit var estimateSave: TextView
     lateinit var calculateBtn: Button
-    lateinit var estLodgeView: TextView
-    lateinit var estTransportView: TextView
-    lateinit var estMealView: TextView
-    lateinit var estEntertainView: TextView
-    lateinit var estUnplanView: TextView
-    lateinit var estPaycheckView: TextView
+//    lateinit var estLodgeView: TextView
+//    lateinit var estTransportView: TextView
+//    lateinit var estMealView: TextView
+//    lateinit var estEntertainView: TextView
+//    lateinit var estUnplanView: TextView
+//    lateinit var estPaycheckView: TextView
 
     var trip = Trip("", "", "", "", "", "", "", "", "", "")
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
@@ -45,12 +45,12 @@ class EstimateActivity : AppCompatActivity() {
         estimatePaycheckTxt = findViewById(R.id.estimatePaycheckTxt)
         estimateSave = findViewById(R.id.estimateSave)
         calculateBtn = findViewById(R.id.calculateBtn)
-        estLodgeView = findViewById(R.id.estLodgeView)
-        estTransportView = findViewById(R.id.estTransportView)
-        estMealView = findViewById(R.id.estMealView)
-        estEntertainView = findViewById(R.id.estEntertainView)
-        estUnplanView = findViewById(R.id.estUnplanView)
-        estPaycheckView = findViewById(R.id.estPaycheckView)
+//        estLodgeView = findViewById(R.id.estLodgeView)
+//        estTransportView = findViewById(R.id.estTransportView)
+//        estMealView = findViewById(R.id.estMealView)
+//        estEntertainView = findViewById(R.id.estEntertainView)
+//        estUnplanView = findViewById(R.id.estUnplanView)
+//        estPaycheckView = findViewById(R.id.estPaycheckView)
 
         database()
 
@@ -65,12 +65,12 @@ class EstimateActivity : AppCompatActivity() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)
-                estLodgeView.setText(value?.estLodging.toString())
-                estTransportView.setText(value?.estTransport.toString())
-                estMealView.setText(value?.estMeal.toString())
-                estEntertainView.setText(value?.estEntertainment.toString())
-                estUnplanView.setText(value?.estUnplanned.toString())
-                estPaycheckView.setText(value?.estPaycheck.toString())
+                estimateLodgingTxt.setText(value?.estLodging.toString())
+                estimateTransportTxt.setText(value?.estTransport.toString())
+                estimateMealTxt.setText(value?.estMeal.toString())
+                estimateEntertainmentTxt.setText(value?.estEntertainment.toString())
+                estimateUnplanTxt.setText(value?.estUnplanned.toString())
+                estimatePaycheckTxt.setText(value?.estPaycheck.toString())
                 estimateSave.setText("$" + value?.estSave.toString() + "/paycheck")
             }
             override fun onCancelled(error: DatabaseError) {
@@ -82,11 +82,11 @@ class EstimateActivity : AppCompatActivity() {
 
 
     fun actualClicked(view: View) {
-        trip.estL = estLodgeView.text.toString()
-        trip.estT = estTransportView.text.toString()
-        trip.estM = estMealView.text.toString()
-        trip.estE = estEntertainView.text.toString()
-        trip.estU = estUnplanView.text.toString()
+        trip.estL = estimateLodgingTxt.text.toString()
+        trip.estT = estimateTransportTxt.text.toString()
+        trip.estM = estimateMealTxt.text.toString()
+        trip.estE = estimateEntertainmentTxt.text.toString()
+        trip.estU = estimateUnplanTxt.text.toString()
 
         println("ESTIMATE is ${trip.estT}")
 //        println("${estLodgeView.text}")
@@ -140,12 +140,12 @@ class EstimateActivity : AppCompatActivity() {
         ref.setValue(estimate).addOnCompleteListener {
             Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
         }
-        estimateLodgingTxt.text.clear()
-        estimateTransportTxt.text.clear()
-        estimateMealTxt.text.clear()
-        estimateEntertainmentTxt.text.clear()
-        estimateUnplanTxt.text.clear()
-        estimatePaycheckTxt.text.clear()
+//        estimateLodgingTxt.text.clear()
+//        estimateTransportTxt.text.clear()
+//        estimateMealTxt.text.clear()
+//        estimateEntertainmentTxt.text.clear()
+//        estimateUnplanTxt.text.clear()
+//        estimatePaycheckTxt.text.clear()
     }
 }
 

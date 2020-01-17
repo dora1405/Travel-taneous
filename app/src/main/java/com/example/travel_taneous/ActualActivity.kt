@@ -25,7 +25,7 @@ class ActualActivity : AppCompatActivity() {
     lateinit var trip: Trip
 
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("actual")
-    private val TAG = "EstimateActivity"
+    private val TAG = "ActualActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,8 +103,23 @@ class ActualActivity : AppCompatActivity() {
 
 
     private fun updateTotal(){
-//        val addMoney = addMoney.text.toString().trim()
-//        val actLodging = (actualLodging.text.toString().toInt() + calc.toInt()).toString()
+        if (actualLodging.text.isNullOrEmpty()){
+            actualLodging.setText("0")
+        }
+        if (actualTransport.text.isNullOrEmpty()){
+            actualTransport.setText("0")
+        }
+        if (actualMeal.text.isNullOrEmpty()){
+            actualMeal.setText("0")
+        }
+        if (actualEntertainment.text.isNullOrEmpty()){
+            actualEntertainment.setText("0")
+        }
+        if (actualUnplanned.text.isNullOrEmpty()){
+            actualUnplanned.setText("0")
+        }
+
+
         val actLodging = actualLodging.text.toString()
         val actTransportation = actualTransport.text.toString()
         val actMeal = actualMeal.text.toString()
