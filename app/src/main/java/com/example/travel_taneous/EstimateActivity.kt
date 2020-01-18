@@ -22,12 +22,6 @@ class EstimateActivity : AppCompatActivity() {
     lateinit var estimatePaycheckTxt: EditText
     lateinit var estimateSave: TextView
     lateinit var calculateBtn: Button
-//    lateinit var estLodgeView: TextView
-//    lateinit var estTransportView: TextView
-//    lateinit var estMealView: TextView
-//    lateinit var estEntertainView: TextView
-//    lateinit var estUnplanView: TextView
-//    lateinit var estPaycheckView: TextView
 
     var trip = Trip("", "", "", "", "", "", "", "", "", "")
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("estimate")
@@ -45,19 +39,12 @@ class EstimateActivity : AppCompatActivity() {
         estimatePaycheckTxt = findViewById(R.id.estimatePaycheckTxt)
         estimateSave = findViewById(R.id.estimateSave)
         calculateBtn = findViewById(R.id.calculateBtn)
-//        estLodgeView = findViewById(R.id.estLodgeView)
-//        estTransportView = findViewById(R.id.estTransportView)
-//        estMealView = findViewById(R.id.estMealView)
-//        estEntertainView = findViewById(R.id.estEntertainView)
-//        estUnplanView = findViewById(R.id.estUnplanView)
-//        estPaycheckView = findViewById(R.id.estPaycheckView)
 
         database()
 
         calculateBtn.setOnClickListener {
             calculateEstimate()
         }
-
     }
 
     fun database() {
@@ -65,23 +52,69 @@ class EstimateActivity : AppCompatActivity() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Estimate::class.java)
-                estimateLodgingTxt.setText(value?.estLodging.toString())
-                estimateTransportTxt.setText(value?.estTransport.toString())
-                estimateMealTxt.setText(value?.estMeal.toString())
-                estimateEntertainmentTxt.setText(value?.estEntertainment.toString())
-                estimateUnplanTxt.setText(value?.estUnplanned.toString())
-                estimatePaycheckTxt.setText(value?.estPaycheck.toString())
-                estimateSave.setText("$" + value?.estSave.toString() + "/paycheck")
+                if (value?.estLodging.isNullOrEmpty()){
+                    estimateLodgingTxt.setText("0")
+                } else {
+                    estimateLodgingTxt.setText(value?.estLodging.toString())
+                }
+                if (value?.estTransport.isNullOrEmpty()){
+                    estimateTransportTxt.setText("0")
+                } else {
+                    estimateTransportTxt.setText(value?.estTransport.toString())
+                }
+                if (value?.estMeal.isNullOrEmpty()){
+                    estimateMealTxt.setText("0")
+                } else {
+                    estimateMealTxt.setText(value?.estMeal.toString())
+                }
+                if (value?.estEntertainment.isNullOrEmpty()){
+                    estimateEntertainmentTxt.setText("0")
+                } else {
+                    estimateEntertainmentTxt.setText(value?.estEntertainment.toString())
+                }
+                if (value?.estUnplanned.isNullOrEmpty()){
+                    estimateUnplanTxt.setText("0")
+                } else {
+                    estimateUnplanTxt.setText(value?.estUnplanned.toString())
+                }
+                if (value?.estPaycheck.isNullOrEmpty()){
+                    estimatePaycheckTxt.setText("1")
+                } else {
+                    estimatePaycheckTxt.setText(value?.estPaycheck.toString())
+                }
+                if (value?.estSave.isNullOrEmpty()){
+                    estimateSave.setText("0")
+                } else {
+                    estimateSave.setText("$" + value?.estSave.toString() + "/paycheck")
+                }
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
-
     }
 
 
     fun actualClicked(view: View) {
+        if (estimateLodgingTxt.text.isNullOrEmpty()){
+            estimateLodgingTxt.setText("0")
+        }
+        if (estimateTransportTxt.text.isNullOrEmpty()){
+            estimateTransportTxt.setText("0")
+        }
+        if (estimateMealTxt.text.isNullOrEmpty()){
+            estimateMealTxt.setText("0")
+        }
+        if (estimateEntertainmentTxt.text.isNullOrEmpty()){
+            estimateEntertainmentTxt.setText("0")
+        }
+        if (estimateUnplanTxt.text.isNullOrEmpty()){
+            estimateUnplanTxt.setText("0")
+        }
+        if (estimatePaycheckTxt.text.isNullOrEmpty()){
+            estimatePaycheckTxt.setText("1")
+        }
+
         trip.estL = estimateLodgingTxt.text.toString()
         trip.estT = estimateTransportTxt.text.toString()
         trip.estM = estimateMealTxt.text.toString()
@@ -140,12 +173,6 @@ class EstimateActivity : AppCompatActivity() {
         ref.setValue(estimate).addOnCompleteListener {
             Toast.makeText(applicationContext, "Estimate Calculated", Toast.LENGTH_LONG).show()
         }
-//        estimateLodgingTxt.text.clear()
-//        estimateTransportTxt.text.clear()
-//        estimateMealTxt.text.clear()
-//        estimateEntertainmentTxt.text.clear()
-//        estimateUnplanTxt.text.clear()
-//        estimatePaycheckTxt.text.clear()
     }
 }
 
