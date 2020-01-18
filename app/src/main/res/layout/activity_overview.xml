@@ -7,54 +7,7 @@
     tools:context=".EstimateActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/estimateBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="estimateClicked"
-            android:text="@string/estimate"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            tools:ignore="OnClick" />
-
-        <TextView
-            android:id="@+id/actualBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
-            android:onClick="actualClicked"
-            android:text="@string/actual"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/overviewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
-            android:text="@string/trip_overview"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -98,230 +51,231 @@
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <LinearLayout
-        android:id="@+id/lodgeLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/totalView"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="75dp"
+        android:layout_weight="1"
+        android:text="@string/all"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unplanView" />
+
+    <TextView
+        android:id="@+id/totalFinal"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/totalView"
+        app:layout_constraintStart_toEndOf="@+id/totalView" />
+
+    <TextView
+        android:id="@+id/totalPercent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/totalView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/totalFinal" />
+
+    <TextView
+        android:id="@+id/unplanView"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="@string/unplanned"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entertainView" />
+
+    <TextView
+        android:id="@+id/unplanFinal"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/unplanView"
+        app:layout_constraintStart_toEndOf="@+id/unplanView" />
+
+    <TextView
+        android:id="@+id/unplanPercent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/unplanView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/unplanFinal" />
+
+    <TextView
+        android:id="@+id/entertainView"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="@string/entertainment"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealView" />
+
+    <TextView
+        android:id="@+id/entertainFinal"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/entertainView"
+        app:layout_constraintStart_toEndOf="@+id/entertainView" />
+
+    <TextView
+        android:id="@+id/entertainPercent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/entertainView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/entertainFinal" />
+
+    <TextView
+        android:id="@+id/mealView"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="@string/meals"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transportView" />
+
+    <TextView
+        android:id="@+id/mealFinal"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mealView"
+        app:layout_constraintStart_toEndOf="@+id/mealView" />
+
+    <TextView
+        android:id="@+id/mealPercent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mealView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mealFinal" />
+
+    <TextView
+        android:id="@+id/transportView"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:text="@string/transportation"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lodgeView" />
+
+    <TextView
+        android:id="@+id/transportFinal"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/transportView"
+        app:layout_constraintStart_toEndOf="@+id/transportView" />
+
+    <TextView
+        android:id="@+id/transportPercent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/transportView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/transportFinal" />
+
+    <TextView
+        android:id="@+id/lodgeView"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:text="@string/lodging"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/lodgeFinal"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lodgeView"
+        app:layout_constraintStart_toEndOf="@+id/lodgeView" />
+
+    <TextView
+        android:id="@+id/lodgePercent"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lodgeView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lodgeFinal" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/lodgeView"
-            android:layout_width="433dp"
+            android:id="@+id/actualBtn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/lodging"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/lodgeFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/trip_overview"
             android:textAlignment="center"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/lodgePercent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/transportLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lodgeLayout">
-
-        <TextView
-            android:id="@+id/transportView"
-            android:layout_width="434dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/transportation"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/transportFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/transportPercent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/mealLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transportLayout">
-
-        <TextView
-            android:id="@+id/mealView"
-            android:layout_width="437dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/meals"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/mealFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/mealPercent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/entertainLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mealLayout">
-
-        <TextView
-            android:id="@+id/entertainView"
-            android:layout_width="438dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/entertainment"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/entertainFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/entertainPercent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/unplanLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entertainLayout">
-
-        <TextView
-            android:id="@+id/unplanView"
-            android:layout_width="440dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/unplanned"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/unplanFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/unplanPercent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/totalLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unplanLayout">
-
-        <TextView
-            android:id="@+id/totalView"
-            android:layout_width="441dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/all"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/totalFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/totalPercent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="viewEnd"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp" />
 
     </LinearLayout>
