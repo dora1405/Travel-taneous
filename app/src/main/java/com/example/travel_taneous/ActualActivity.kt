@@ -10,6 +10,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_actual.*
 import kotlinx.android.synthetic.main.activity_actual.view.*
 
 class ActualActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class ActualActivity : AppCompatActivity() {
     lateinit var updateBtn: Button
     lateinit var radioGroup: RadioGroup
     lateinit var trip: Trip
+    lateinit var calc: String
 
     val ref = FirebaseDatabase.getInstance().reference.child("trips").child("London").child("actual")
     private val TAG = "ActualActivity"
@@ -49,16 +51,32 @@ class ActualActivity : AppCompatActivity() {
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId) {
-                R.id.radioLodging -> actualLodging.setText((addMoney.text.toString()))
-                R.id.radioTransport -> actualTransport.setText(addMoney.text.toString())
-                R.id.radioMeal -> actualMeal.setText(addMoney.text.toString())
-                R.id.radioEntertain -> actualEntertainment.setText(addMoney.text.toString())
-                R.id.radioUnplan -> actualUnplanned.setText(addMoney.text.toString())
+                R.id.radioLodging -> {
+                    calc = "%.2f".format(actualLodging.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                    actualLodging.setText(calc)
+                }
+                R.id.radioTransport -> {
+                    calc = "%.2f".format(actualTransport.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                    actualTransport.setText(calc)
+                }
+                R.id.radioMeal -> {
+                    calc = "%.2f".format(actualMeal.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                    actualMeal.setText(calc)
+                }
+                R.id.radioEntertain -> {
+                    calc = "%.2f".format(actualEntertainment.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                    actualEntertainment.setText(calc)
+                }
+                R.id.radioUnplan -> {
+                    calc = "%.2f".format(actualUnplanned.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                    actualUnplanned.setText(calc)
+                }
             }
         }
 
         updateBtn.setOnClickListener {
             updateTotal()
+            radioGroup.clearCheck()
         }
 
 
