@@ -10,8 +10,8 @@ import android.widget.TextView
 
 class OverviewActivity : AppCompatActivity() {
 
-    lateinit var lodgeFinal: TextView //if E>A -> under
-    lateinit var lodgePercent: TextView //calculate
+    lateinit var lodgeFinal: TextView
+    lateinit var lodgePercent: TextView
 //    val lodgeE: Number
 //    lateinit var lodgeA: Number
     lateinit var lodgeCalc: Number
@@ -54,12 +54,14 @@ class OverviewActivity : AppCompatActivity() {
         println("I got both estimate: ${trip.estL} and Actual: ${trip.actL}")
         val lodgeE = trip.estL.toFloat()
         val lodgeA = trip.actL.toFloat()
-        if(lodgeE > lodgeA) {
+        if(lodgeE.toInt() == 0){
+            lodgeFinal.setText("Not Budgeted")
+        } else if (lodgeE > lodgeA) {
             lodgeFinal.setText("Under Budget")
             lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toInt().toString() + "%"
         } else if (lodgeE < lodgeA) {
             lodgeFinal.setText("Over Budget")
-            lodgePercent.text = ("%.2f".format(((lodgeE - lodgeA)/lodgeE) * 100).toDouble()).toInt().toString() + "%"
+            lodgePercent.text = ("%.2f".format(((lodgeA - lodgeE)/lodgeE) * 100).toDouble()).toInt().toString() + "%"
         } else {
             lodgeFinal.setText("On Budget")
             lodgePercent.text = ""
@@ -67,12 +69,14 @@ class OverviewActivity : AppCompatActivity() {
 
         val transportE = trip.estT.toFloat()
         val transportA = trip.actT.toFloat()
-        if(transportE > transportA) {
+        if(transportE.toInt() == 0){
+            transportFinal.setText("Not Budgeted")
+        } else if (transportE > transportA) {
             transportFinal.setText("Under Budget")
             transportPercent.text = ("%.2f".format(((transportE - transportA)/transportE) * 100).toDouble()).toInt().toString() + "%"
         } else if (transportE < transportA) {
             transportFinal.setText("Over Budget")
-            transportPercent.text = ("%.2f".format(((transportE - transportA)/transportE) * 100).toDouble()).toInt().toString() + "%"
+            transportPercent.text = ("%.2f".format(((transportA - transportE)/transportE) * 100).toDouble()).toInt().toString() + "%"
         } else {
             transportFinal.setText("On Budget")
             transportPercent.text = ""
@@ -80,12 +84,14 @@ class OverviewActivity : AppCompatActivity() {
 
         val mealE = trip.estM.toFloat()
         val mealA = trip.actM.toFloat()
-        if(mealE > mealA) {
+        if(mealE.toInt() == 0){
+            mealFinal.setText("Not Budgeted")
+        } else if (mealE > mealA) {
             mealFinal.setText("Under Budget")
             mealPercent.text = ("%.2f".format(((mealE - mealA)/mealE) * 100).toDouble()).toInt().toString() + "%"
         } else if (mealE < mealA) {
             mealFinal.setText("Over Budget")
-            mealPercent.text = ("%.2f".format(((mealE - mealA)/mealE) * 100).toDouble()).toInt().toString() + "%"
+            mealPercent.text = ("%.2f".format(((mealA - mealE)/mealE) * 100).toDouble()).toInt().toString() + "%"
         } else {
             mealFinal.setText("On Budget")
             mealPercent.text = ""
@@ -93,12 +99,14 @@ class OverviewActivity : AppCompatActivity() {
 
         val entertainE = trip.estE.toFloat()
         val entertainA = trip.actE.toFloat()
-        if(entertainE > entertainA) {
+        if(entertainE.toInt() == 0){
+            entertainFinal.setText("Not Budgeted")
+        } else if (entertainE > entertainA) {
             entertainFinal.setText("Under Budget")
             entertainPercent.text = ("%.2f".format(((entertainE - entertainA)/entertainE) * 100).toDouble()).toInt().toString() + "%"
         } else if (entertainE < entertainA) {
             entertainFinal.setText("Over Budget")
-            entertainPercent.text = ("%.2f".format(((entertainE - entertainA)/entertainE) * 100).toDouble()).toInt().toString() + "%"
+            entertainPercent.text = ("%.2f".format(((entertainA - entertainE)/entertainE) * 100).toDouble()).toInt().toString() + "%"
         } else {
             entertainFinal.setText("On Budget")
             entertainPercent.text = ""
@@ -106,19 +114,26 @@ class OverviewActivity : AppCompatActivity() {
 
         val unplanE = trip.estU.toFloat()
         val unplanA = trip.actU.toFloat()
-        if(unplanE > unplanA) {
+        if(unplanE.toInt() == 0){
+            unplanFinal.setText("Not Budgeted")
+        } else if (unplanE > unplanA) {
             unplanFinal.setText("Under Budget")
             unplanPercent.text = ("%.2f".format(((unplanE - unplanA)/unplanE) * 100).toDouble()).toInt().toString() + "%"
         } else if (unplanE < unplanA) {
             unplanFinal.setText("Over Budget")
-            unplanPercent.text = ("%.2f".format(((unplanE - unplanA)/unplanE) * 100).toDouble()).toInt().toString() + "%"
+            unplanPercent.text = ("%.2f".format(((unplanA - unplanE)/unplanE) * 100).toDouble()).toInt().toString() + "%"
         } else {
             unplanFinal.setText("On Budget")
             unplanPercent.text = ""
         }
     }
 
+    fun actualClicked(view: View) {
+        val actualIntent = Intent(this, ActualActivity::class.java)
+        startActivity(actualIntent)
 
+
+    }
     fun dashboardClicked(view: View) {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)

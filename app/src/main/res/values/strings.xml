@@ -21,11 +21,17 @@
     <string name="paychecks_to_save">Paychecks to Save</string>
     <string name="num">#</string>
     <string name="how_much_to_save_per_paycheck">How much to save per paycheck</string>
-    <string name="calculate">Calculate</string>
-    <string name="money">$</string>
     <string name="textview">TextView</string>
     <string name="add_dollars">add dollars</string>
-    <string name="esthint">$ enter</string>
+    <string name="esthint">enter</string>
     <string name="back"><![CDATA[<- dashboard]]></string>
     <string name="cost"><![CDATA[actual cost ->]]></string>
+    <string name="costback"><![CDATA[<- Actual Cost]]></string>
+    <string name="dashfor"><![CDATA[dashboard ->]]></string>
+    <string name="calc">calculate/update</string>
+    <string name="save">save</string>
+    <string name="estback"><![CDATA[<- estimate]]></string>
+    <string name="tripfor"><![CDATA[trip overview ->]]></string>
+    <string name="pay"># paychecks</string>
+    <string name="money">$</string>
 </resources>

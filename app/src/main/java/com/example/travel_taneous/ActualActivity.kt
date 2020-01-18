@@ -80,6 +80,10 @@ class ActualActivity : AppCompatActivity() {
         })
     }
 
+    fun estimateClicked(view: View) {
+        val estimateIntent = Intent(this, EstimateActivity::class.java)
+        startActivity(estimateIntent)
+    }
 
     fun overviewClicked(view: View) {
         trip.actL = actualLodging.text.toString()
@@ -99,8 +103,6 @@ class ActualActivity : AppCompatActivity() {
         }
 
     }
-
-
 
     private fun updateTotal(){
         if (actualLodging.text.isNullOrEmpty()){
