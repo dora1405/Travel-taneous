@@ -144,7 +144,6 @@ class ActualActivity : AppCompatActivity() {
         trip.actE = actualEntertainment.text.toString()
         trip.actU = actualUnplanned.text.toString()
 
-        println("ACTUAL is ${trip.actT}")
         if(trip.actL != null && trip.actL != "") {
             val tripOverviewIntent = Intent(this, OverviewActivity::class.java)
             tripOverviewIntent.putExtra(EXTRA_TRIP, trip)
@@ -167,5 +166,4 @@ class ActualActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Category Updated", Toast.LENGTH_LONG).show()
         }
     }
-
 }

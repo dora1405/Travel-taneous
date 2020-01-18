@@ -24,8 +24,6 @@ class OverviewActivity : AppCompatActivity() {
     lateinit var totalFinal: TextView
     lateinit var totalPercent: TextView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
@@ -45,7 +43,6 @@ class OverviewActivity : AppCompatActivity() {
 
         val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
 
-        println("I got both estimate: ${trip.estL} and Actual: ${trip.actL}")
         val lodgeE = trip.estL.toFloat()
         val lodgeA = trip.actL.toFloat()
         if(lodgeE.toInt() == 0){
@@ -140,12 +137,10 @@ class OverviewActivity : AppCompatActivity() {
     fun actualClicked(view: View) {
         val actualIntent = Intent(this, ActualActivity::class.java)
         startActivity(actualIntent)
-
-
     }
+
     fun dashboardClicked(view: View) {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)
     }
-
 }

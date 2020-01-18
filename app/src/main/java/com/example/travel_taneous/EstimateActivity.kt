@@ -93,8 +93,7 @@ class EstimateActivity : AppCompatActivity() {
             }
         })
     }
-
-
+    
     fun actualClicked(view: View) {
         if (estimateLodgingTxt.text.isNullOrEmpty()){
             estimateLodgingTxt.setText("0")
@@ -121,8 +120,6 @@ class EstimateActivity : AppCompatActivity() {
         trip.estE = estimateEntertainmentTxt.text.toString()
         trip.estU = estimateUnplanTxt.text.toString()
 
-        println("ESTIMATE is ${trip.estT}")
-//        println("${estLodgeView.text}")
         if(trip.estL != null && trip.estL != "") {
             val actualIntent = Intent(this, ActualActivity::class.java)
             actualIntent.putExtra(EXTRA_TRIP, trip)
@@ -130,9 +127,7 @@ class EstimateActivity : AppCompatActivity() {
         } else {
             Toast.makeText(applicationContext, "Still Packing", Toast.LENGTH_LONG).show()
         }
-
     }
-
 
     fun dashboardClicked(view: View) {
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
