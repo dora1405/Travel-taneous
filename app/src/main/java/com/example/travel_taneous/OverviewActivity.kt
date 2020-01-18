@@ -6,31 +6,23 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_overview.*
 
 
 class OverviewActivity : AppCompatActivity() {
 
     lateinit var lodgeFinal: TextView
     lateinit var lodgePercent: TextView
-//    val lodgeE: Number
-//    lateinit var lodgeA: Number
-    lateinit var lodgeCalc: Number
     lateinit var transportFinal: TextView
     lateinit var transportPercent: TextView
-    lateinit var transportE: String
-    lateinit var transportA: String
     lateinit var mealFinal: TextView
     lateinit var mealPercent: TextView
-    lateinit var mealE: String
-    lateinit var mealA: String
     lateinit var entertainFinal: TextView
     lateinit var entertainPercent: TextView
-    lateinit var entertainE: String
-    lateinit var entertainA: String
     lateinit var unplanFinal: TextView
     lateinit var unplanPercent: TextView
-    lateinit var unplanE: String
-    lateinit var unplanA: String
+    lateinit var totalFinal: TextView
+    lateinit var totalPercent: TextView
 
 
 
@@ -48,6 +40,8 @@ class OverviewActivity : AppCompatActivity() {
         entertainPercent = findViewById(R.id.entertainPercent)
         unplanFinal = findViewById(R.id.unplanFinal)
         unplanPercent = findViewById(R.id.unplanPercent)
+        totalFinal = findViewById(R.id.totalFinal)
+        totalPercent = findViewById(R.id.totalPercent)
 
         val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
 
@@ -125,6 +119,21 @@ class OverviewActivity : AppCompatActivity() {
         } else {
             unplanFinal.setText("On Budget")
             unplanPercent.text = ""
+        }
+
+        val totalE = lodgeE + transportE + mealE + entertainE + unplanE
+        val totalA = lodgeA + transportA + mealA + entertainA + unplanA
+        if(totalE.toInt() == 0){
+            totalFinal.setText("Not Budgeted")
+        } else if (totalE > totalA) {
+            totalFinal.setText("Under Budget")
+            totalPercent.text = ("%.2f".format(((totalE - totalA)/totalE) * 100).toDouble()).toInt().toString() + "%"
+        } else if (totalE < totalA) {
+            totalFinal.setText("Over Budget")
+            totalPercent.text = ("%.2f".format(((totalA - totalE)/totalE) * 100).toDouble()).toInt().toString() + "%"
+        } else {
+            totalFinal.setText("On Budget")
+            totalPercent.text = ""
         }
     }
 
