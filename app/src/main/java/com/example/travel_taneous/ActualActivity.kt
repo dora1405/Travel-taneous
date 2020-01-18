@@ -34,8 +34,6 @@ class ActualActivity : AppCompatActivity() {
         setContentView(R.layout.activity_actual)
 
         trip = intent.getParcelableExtra(EXTRA_TRIP)
-//        println("this is $receive")
-
 
         actualLodging = findViewById(R.id.actualLodging)
         actualTransport = findViewById(R.id.actualTransport)
@@ -48,28 +46,46 @@ class ActualActivity : AppCompatActivity() {
 
         database()
 
-
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId) {
                 R.id.radioLodging -> {
-                    calc = "%.2f".format(actualLodging.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
-                    actualLodging.setText(calc)
+                    if(addMoney.text.isNullOrEmpty()) {
+                    } else {
+                        calc = "%.2f".format(actualLodging.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                        actualLodging.setText(calc)
+                    }
+
                 }
                 R.id.radioTransport -> {
-                    calc = "%.2f".format(actualTransport.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
-                    actualTransport.setText(calc)
+                    if(addMoney.text.isNullOrEmpty()) {
+                    } else {
+                        calc = "%.2f".format(actualTransport.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                        actualTransport.setText(calc)
+                    }
+
                 }
                 R.id.radioMeal -> {
-                    calc = "%.2f".format(actualMeal.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
-                    actualMeal.setText(calc)
+                    if(addMoney.text.isNullOrEmpty()) {
+                    } else {
+                        calc = "%.2f".format(actualMeal.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                        actualMeal.setText(calc)
+                    }
+
                 }
                 R.id.radioEntertain -> {
-                    calc = "%.2f".format(actualEntertainment.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
-                    actualEntertainment.setText(calc)
+                    if(addMoney.text.isNullOrEmpty()) {
+                    } else {
+                        calc = "%.2f".format(actualEntertainment.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                        actualEntertainment.setText(calc)
+                    }
+
                 }
                 R.id.radioUnplan -> {
-                    calc = "%.2f".format(actualUnplanned.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
-                    actualUnplanned.setText(calc)
+                    if(addMoney.text.isNullOrEmpty()) {
+                    } else {
+                        calc = "%.2f".format(actualUnplanned.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
+                        actualUnplanned.setText(calc)
+                    }
                 }
             }
         }
@@ -78,19 +94,37 @@ class ActualActivity : AppCompatActivity() {
             updateTotal()
             radioGroup.clearCheck()
         }
-
-
     }
 
     fun database() {
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Actual::class.java)
-                actualLodging.setText(value?.actLodging.toString())
-                actualTransport.setText(value?.actTransport.toString())
-                actualMeal.setText(value?.actMeal.toString())
-                actualEntertainment.setText(value?.actEntertainment.toString())
-                actualUnplanned.setText(value?.actUnplanned.toString())
+                if (value?.actLodging.isNullOrEmpty()){
+                    actualLodging.setText("0")
+                } else {
+                    actualLodging.setText(value?.actLodging.toString())
+                }
+                if (value?.actTransport.isNullOrEmpty()){
+                    actualTransport.setText("0")
+                } else {
+                    actualTransport.setText(value?.actTransport.toString())
+                }
+                if (value?.actMeal.isNullOrEmpty()){
+                    actualMeal.setText("0")
+                } else {
+                    actualMeal.setText(value?.actMeal.toString())
+                }
+                if (value?.actEntertainment.isNullOrEmpty()){
+                    actualEntertainment.setText("0")
+                } else {
+                    actualEntertainment.setText(value?.actEntertainment.toString())
+                }
+                if (value?.actUnplanned.isNullOrEmpty()){
+                    actualUnplanned.setText("0")
+                } else {
+                    actualUnplanned.setText(value?.actUnplanned.toString())
+                }
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read value.", error.toException())
@@ -117,40 +151,17 @@ class ActualActivity : AppCompatActivity() {
             startActivity(tripOverviewIntent)
         } else {
             Toast.makeText(applicationContext, "Still Unpacking", Toast.LENGTH_LONG).show()
-
         }
-
     }
 
     private fun updateTotal(){
-        if (actualLodging.text.isNullOrEmpty()){
-            actualLodging.setText("0")
-        }
-        if (actualTransport.text.isNullOrEmpty()){
-            actualTransport.setText("0")
-        }
-        if (actualMeal.text.isNullOrEmpty()){
-            actualMeal.setText("0")
-        }
-        if (actualEntertainment.text.isNullOrEmpty()){
-            actualEntertainment.setText("0")
-        }
-        if (actualUnplanned.text.isNullOrEmpty()){
-            actualUnplanned.setText("0")
-        }
-
-
         val actLodging = actualLodging.text.toString()
         val actTransportation = actualTransport.text.toString()
         val actMeal = actualMeal.text.toString()
         val actEntertainment = actualEntertainment.text.toString()
         val actUnplanned = actualUnplanned.text.toString()
 
-
-//        val ref = FirebaseDatabase.getInstance().reference
-
         val actual = Actual(actLodging, actTransportation, actMeal, actEntertainment, actUnplanned)
-
 
         ref.setValue(actual).addOnCompleteListener {
             Toast.makeText(applicationContext, "Category Updated", Toast.LENGTH_LONG).show()
