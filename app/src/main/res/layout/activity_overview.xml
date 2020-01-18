@@ -70,7 +70,8 @@
             android:onClick="actualClicked"
             android:text="@string/costback"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/button2"
@@ -80,7 +81,8 @@
             android:onClick="dashboardClicked"
             android:text="@string/dashfor"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 <!--    <Button-->
@@ -121,7 +123,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="O/U"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -130,7 +131,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
@@ -161,7 +161,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="O/U"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -170,7 +169,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
@@ -201,7 +199,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="O/U"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -210,7 +207,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
@@ -241,7 +237,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="O/U"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -250,7 +245,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
@@ -281,7 +275,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="O/U"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -290,7 +283,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
@@ -313,7 +305,7 @@
             android:layout_width="441dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Overall"
+            android:text="@string/all"
             android:textSize="18sp" />
 
         <TextView
@@ -321,7 +313,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="O/U"
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -330,7 +321,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="%"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
