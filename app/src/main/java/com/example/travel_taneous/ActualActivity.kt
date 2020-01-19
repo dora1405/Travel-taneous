@@ -1,6 +1,7 @@
 package com.example.travel_taneous
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,6 +45,9 @@ class ActualActivity : AppCompatActivity() {
         updateBtn = findViewById(R.id.updateBtn)
         radioGroup = findViewById(R.id.radioGroup)
 
+
+//        actualLodging.setTextColor(Color.parseColor("#eb5252"))
+
         database()
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -53,6 +57,8 @@ class ActualActivity : AppCompatActivity() {
                     } else {
                         calc = "%.2f".format(actualLodging.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
                         actualLodging.setText(calc)
+
+                        colorL()
                     }
 
                 }
@@ -61,6 +67,8 @@ class ActualActivity : AppCompatActivity() {
                     } else {
                         calc = "%.2f".format(actualTransport.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
                         actualTransport.setText(calc)
+
+                        colorT()
                     }
 
                 }
@@ -69,6 +77,8 @@ class ActualActivity : AppCompatActivity() {
                     } else {
                         calc = "%.2f".format(actualMeal.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
                         actualMeal.setText(calc)
+
+                        colorM()
                     }
 
                 }
@@ -77,6 +87,8 @@ class ActualActivity : AppCompatActivity() {
                     } else {
                         calc = "%.2f".format(actualEntertainment.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
                         actualEntertainment.setText(calc)
+
+                        colorE()
                     }
 
                 }
@@ -85,6 +97,8 @@ class ActualActivity : AppCompatActivity() {
                     } else {
                         calc = "%.2f".format(actualUnplanned.text.toString().toFloat() + addMoney.text.toString().toFloat()).toDouble().toString()
                         actualUnplanned.setText(calc)
+
+                        colorU()
                     }
                 }
             }
@@ -104,32 +118,86 @@ class ActualActivity : AppCompatActivity() {
                     actualLodging.setText("0")
                 } else {
                     actualLodging.setText(value?.actLodging.toString())
+
+                    colorL()
                 }
+
                 if (value?.actTransport.isNullOrEmpty()){
                     actualTransport.setText("0")
                 } else {
                     actualTransport.setText(value?.actTransport.toString())
+
+                    colorT()
                 }
+
                 if (value?.actMeal.isNullOrEmpty()){
                     actualMeal.setText("0")
                 } else {
                     actualMeal.setText(value?.actMeal.toString())
+
+                    colorM()
                 }
+
                 if (value?.actEntertainment.isNullOrEmpty()){
                     actualEntertainment.setText("0")
                 } else {
                     actualEntertainment.setText(value?.actEntertainment.toString())
+
+                    colorE()
                 }
+
                 if (value?.actUnplanned.isNullOrEmpty()){
                     actualUnplanned.setText("0")
                 } else {
                     actualUnplanned.setText(value?.actUnplanned.toString())
+
+                    colorU()
                 }
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+    }
+
+    fun colorL(){
+        if(actualLodging.text.toString().toFloat() > trip.estL.toFloat()){
+            actualLodging.setTextColor(Color.parseColor("#eb5252"))
+        } else {
+            actualLodging.setTextColor(Color.parseColor("#3F3F3F"))
+        }
+    }
+
+    fun colorT(){
+        if(actualTransport.text.toString().toFloat() > trip.estT.toFloat()){
+            actualTransport.setTextColor(Color.parseColor("#eb5252"))
+        } else {
+            actualTransport.setTextColor(Color.parseColor("#3F3F3F"))
+        }
+    }
+
+    fun colorM(){
+        if(actualMeal.text.toString().toFloat() > trip.estM.toFloat()){
+            actualMeal.setTextColor(Color.parseColor("#eb5252"))
+        } else {
+            actualMeal.setTextColor(Color.parseColor("#3F3F3F"))
+        }
+    }
+
+    fun colorE(){
+        if(actualEntertainment.text.toString().toFloat() > trip.estE.toFloat()){
+            actualEntertainment.setTextColor(Color.parseColor("#eb5252"))
+        } else {
+            actualEntertainment.setTextColor(Color.parseColor("#3F3F3F"))
+        }
+    }
+
+    fun colorU(){
+        if(actualUnplanned.text.toString().toFloat() > trip.estU.toFloat()){
+            actualUnplanned.setTextColor(Color.parseColor("#eb5252"))
+        } else {
+            actualUnplanned.setTextColor(Color.parseColor("#3F3F3F"))
+        }
     }
 
     fun estimateClicked(view: View) {
@@ -166,4 +234,5 @@ class ActualActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Category Updated", Toast.LENGTH_LONG).show()
         }
     }
+
 }
