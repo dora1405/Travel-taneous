@@ -23,6 +23,9 @@ class OverviewActivity : AppCompatActivity() {
     lateinit var unplanPercent: TextView
     lateinit var totalFinal: TextView
     lateinit var totalPercent: TextView
+    lateinit var estTotalView: TextView
+    lateinit var actTotalView: TextView
+    lateinit var diffView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +43,9 @@ class OverviewActivity : AppCompatActivity() {
         unplanPercent = findViewById(R.id.unplanPercent)
         totalFinal = findViewById(R.id.totalFinal)
         totalPercent = findViewById(R.id.totalPercent)
+        estTotalView = findViewById(R.id.estTotalView)
+        actTotalView = findViewById(R.id.actTotalView)
+        diffView = findViewById(R.id.diffView)
 
         val trip = intent.getParcelableExtra<Trip>(EXTRA_TRIP)
 
@@ -132,6 +138,10 @@ class OverviewActivity : AppCompatActivity() {
             totalFinal.setText("On Budget")
             totalPercent.text = ""
         }
+
+        estTotalView.setText("$" + "%.2f".format(totalE).toDouble().toString())
+        actTotalView.setText("$" + "%.2f".format(totalA).toDouble().toString())
+        diffView.setText("$" + "%.2f".format(totalE - totalA).toDouble().toString())
     }
 
     fun actualClicked(view: View) {

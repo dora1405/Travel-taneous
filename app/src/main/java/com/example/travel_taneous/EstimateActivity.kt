@@ -160,7 +160,8 @@ class EstimateActivity : AppCompatActivity() {
         val estEntertain = estimateEntertainmentTxt.text.toString()
         val estUnplanned = estimateUnplanTxt.text.toString()
         val estPaycheck = estimatePaycheckTxt.text.toString()
-        val estSave: String = ((estLodging.toInt() + estTransport.toInt() + estMeal.toInt() + estEntertain.toInt() + estUnplanned.toInt())/estPaycheck.toInt()).toString()
+        val estSave: String = ("%.2f".format((estLodging.toFloat() + estTransport.toFloat() + estMeal.toFloat() + estEntertain.toFloat() + estUnplanned.toFloat())/estPaycheck.toFloat())).toDouble().toString()
+//        val estShow= estimateSave.setText("$" + "%.2f".format(estSave.toFloat()).toDouble().toString() + "/paycheck").toString()
         val estShow= estimateSave.setText("$" + estSave + "/paycheck").toString()
 
         val estimate = Estimate(estLodging, estTransport, estMeal, estEntertain, estUnplanned, estPaycheck, estSave)

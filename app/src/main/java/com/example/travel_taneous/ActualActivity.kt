@@ -45,9 +45,6 @@ class ActualActivity : AppCompatActivity() {
         updateBtn = findViewById(R.id.updateBtn)
         radioGroup = findViewById(R.id.radioGroup)
 
-
-//        actualLodging.setTextColor(Color.parseColor("#eb5252"))
-
         database()
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -60,8 +57,8 @@ class ActualActivity : AppCompatActivity() {
 
                         colorL()
                     }
-
                 }
+
                 R.id.radioTransport -> {
                     if(addMoney.text.isNullOrEmpty()) {
                     } else {
@@ -70,8 +67,8 @@ class ActualActivity : AppCompatActivity() {
 
                         colorT()
                     }
-
                 }
+
                 R.id.radioMeal -> {
                     if(addMoney.text.isNullOrEmpty()) {
                     } else {
@@ -80,8 +77,8 @@ class ActualActivity : AppCompatActivity() {
 
                         colorM()
                     }
-
                 }
+
                 R.id.radioEntertain -> {
                     if(addMoney.text.isNullOrEmpty()) {
                     } else {
@@ -90,8 +87,8 @@ class ActualActivity : AppCompatActivity() {
 
                         colorE()
                     }
-
                 }
+
                 R.id.radioUnplan -> {
                     if(addMoney.text.isNullOrEmpty()) {
                     } else {

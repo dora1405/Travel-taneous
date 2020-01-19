@@ -66,6 +66,7 @@
         android:id="@+id/linearLayout7"
         android:layout_width="412dp"
         android:layout_height="67dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
