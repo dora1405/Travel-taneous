@@ -38,23 +38,23 @@
             tools:ignore="ButtonStyle" />
 
     </LinearLayout>
-<!--    <Button-->
-<!--        android:id="@+id/button"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorPrimaryDark"-->
-<!--        android:onClick="dashboardClicked"-->
-<!--        android:text="@string/dashboard"-->
-<!--        android:textColor="@color/colorAccent"-->
-<!--        android:textSize="14sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/button"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/colorPrimaryDark"-->
+    <!--        android:onClick="dashboardClicked"-->
+    <!--        android:text="@string/dashboard"-->
+    <!--        android:textColor="@color/colorAccent"-->
+    <!--        android:textSize="14sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <TextView
         android:id="@+id/totalView"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="75dp"
         android:layout_weight="1"
@@ -66,9 +66,9 @@
     <TextView
         android:id="@+id/totalFinal"
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/totalView"
         app:layout_constraintStart_toEndOf="@+id/totalView" />
@@ -76,7 +76,7 @@
     <TextView
         android:id="@+id/totalPercent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
@@ -88,8 +88,8 @@
 
     <TextView
         android:id="@+id/unplanView"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -101,9 +101,9 @@
     <TextView
         android:id="@+id/unplanFinal"
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/unplanView"
         app:layout_constraintStart_toEndOf="@+id/unplanView" />
@@ -111,7 +111,7 @@
     <TextView
         android:id="@+id/unplanPercent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
@@ -122,8 +122,8 @@
 
     <TextView
         android:id="@+id/entertainView"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -135,9 +135,9 @@
     <TextView
         android:id="@+id/entertainFinal"
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/entertainView"
         app:layout_constraintStart_toEndOf="@+id/entertainView" />
@@ -145,7 +145,7 @@
     <TextView
         android:id="@+id/entertainPercent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
@@ -156,8 +156,8 @@
 
     <TextView
         android:id="@+id/mealView"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -169,9 +169,9 @@
     <TextView
         android:id="@+id/mealFinal"
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/mealView"
         app:layout_constraintStart_toEndOf="@+id/mealView" />
@@ -179,7 +179,7 @@
     <TextView
         android:id="@+id/mealPercent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
@@ -190,8 +190,8 @@
 
     <TextView
         android:id="@+id/transportView"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -203,9 +203,9 @@
     <TextView
         android:id="@+id/transportFinal"
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/transportView"
         app:layout_constraintStart_toEndOf="@+id/transportView" />
@@ -213,7 +213,7 @@
     <TextView
         android:id="@+id/transportPercent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
@@ -224,8 +224,8 @@
 
     <TextView
         android:id="@+id/lodgeView"
-        android:layout_width="155dp"
-        android:layout_height="30dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -237,9 +237,9 @@
     <TextView
         android:id="@+id/lodgeFinal"
         android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/lodgeView"
         app:layout_constraintStart_toEndOf="@+id/lodgeView" />
@@ -247,7 +247,7 @@
     <TextView
         android:id="@+id/lodgePercent"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
@@ -280,80 +280,78 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/wordLayout"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/totalEView"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:text="@string/estimate"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/estTotalView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totalAView"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/actual"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/totalEView"
+        app:layout_constraintStart_toEndOf="@+id/totalEView" />
+
+    <TextView
+        android:id="@+id/totalCalcView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:text="@string/tot"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/totalEView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/totalAView" />
+
+    <TextView
+        android:id="@+id/estTotalView"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:text="@string/none"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/estTotalView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+    <TextView
+        android:id="@+id/actTotalView"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/none"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/estTotalView"
+        app:layout_constraintStart_toEndOf="@+id/estTotalView" />
 
-        <TextView
-            android:id="@+id/actTotalView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/diffView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/diffView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/wordLayout"
+        android:layout_weight="1"
+        android:text="@string/none"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/estTotalView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/totalEView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/estimate"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/totalAView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/actual"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/totalCalcView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Total"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/actTotalView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

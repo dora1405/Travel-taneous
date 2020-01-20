@@ -32,24 +32,26 @@
 
     <EditText
         android:id="@+id/estimateLodgingTxt"
-        android:layout_width="126dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="@string/esthint"
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/estLodgeView"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="Autofill,InefficientWeight" />
 
     <EditText
         android:id="@+id/estimateTransportTxt"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -59,7 +61,10 @@
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/estTransportView"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         tools:ignore="Autofill,InefficientWeight" />
 
     <LinearLayout
@@ -85,8 +90,8 @@
 
         <TextView
             android:id="@+id/estimateSave"
-            android:layout_width="145dp"
-            android:layout_height="33dp"
+            android:layout_width="205dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16sp"
             android:layout_weight="1"
@@ -112,10 +117,10 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/lodging"
         android:textAlignment="textStart"
@@ -126,8 +131,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
@@ -138,8 +143,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -152,8 +157,8 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -166,8 +171,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -179,8 +184,8 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="165dp"
-        android:layout_height="34dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
@@ -192,16 +197,18 @@
 
     <EditText
         android:id="@+id/estimatePaycheckTxt"
-        android:layout_width="126dp"
+        android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:ems="10"
         android:hint="@string/pay"
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -210,7 +217,7 @@
 
     <EditText
         android:id="@+id/estimateUnplanTxt"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
@@ -220,82 +227,80 @@
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/estUnplanView"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         tools:ignore="Autofill" />
 
     <TextView
         android:id="@+id/estLodgeView"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/money"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/estimateLodgingTxt"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/estTransportView"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/money"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/estimateTransportTxt"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/estMealView"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/money"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/estimateMealTxt"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/estEntertainView"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/money"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/estimateEntertainmentTxt"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/estUnplanView"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/money"
         android:textAlignment="viewEnd"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/estimateUnplanTxt"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:ignore="RtlCompat" />
 
     <EditText
         android:id="@+id/estimateEntertainmentTxt"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -305,12 +310,15 @@
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/estEntertainView"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/estimateMealTxt"
-        android:layout_width="126dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -320,7 +328,10 @@
         android:inputType="textPersonName"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/estMealView"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         tools:ignore="Autofill" />
 
     <LinearLayout

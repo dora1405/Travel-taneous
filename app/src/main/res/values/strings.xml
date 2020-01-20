@@ -35,4 +35,6 @@
     <string name="pay"># paychecks</string>
     <string name="money">$</string>
     <string name="all">Overall</string>
+    <string name="none">-</string>
+    <string name="tot">Total</string>
 </resources>

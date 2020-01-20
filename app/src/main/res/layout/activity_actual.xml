@@ -43,29 +43,34 @@
             android:id="@+id/radioLodging"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimary"
             android:text="@string/lodging" />
 
         <RadioButton
             android:id="@+id/radioTransport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimary"
             android:text="@string/transportation" />
 
         <RadioButton
             android:id="@+id/radioMeal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimary"
             android:text="@string/meals" />
 
         <RadioButton
             android:id="@+id/radioEntertain"
             android:layout_width="match_parent"
+            android:buttonTint="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:text="@string/entertainment" />
 
         <RadioButton
             android:id="@+id/radioUnplan"
             android:layout_width="match_parent"
+            android:buttonTint="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:text="@string/unplanned" />
     </RadioGroup>
@@ -82,6 +87,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
         tools:ignore="Autofill" />
 
     <Button
