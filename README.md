@@ -32,7 +32,7 @@ This is also for travelers that want to compare how well they budgeted for the t
 * While downloading components, may ask user for password for HAXM Installer, follow prompts to allow HAXM installer
 * Once components are downloaded, click “Finish”
 
-## Open Android Studio project
+## Open/Run Travel-taneous
 * Click “Check out project from Version Control
 * Select “Git”
 * In the URL field, enter repo url
