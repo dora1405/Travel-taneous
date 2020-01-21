@@ -48,7 +48,5 @@
         app:layout_constraintBottom_toTopOf="@+id/newTripBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textCursorDrawable="@color/colorPrimaryDark"
-        android:backgroundTint="@color/colorPrimaryDark"
         tools:ignore="Autofill" />
 </androidx.constraintlayout.widget.ConstraintLayout>
