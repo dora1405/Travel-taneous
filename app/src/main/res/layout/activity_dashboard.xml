@@ -6,49 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".DashboardActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/begin" />
+
     <Button
         android:id="@+id/newTripBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/create_new_trip"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
         android:id="@+id/tripView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
         android:onClick="estimateClicked"
         android:text="@string/london2020"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/newTripBtn" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:ems="10"
         android:hint="@string/add_trip_name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/newTripBtn"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:textCursorDrawable="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Autofill" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

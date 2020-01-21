@@ -32,7 +32,7 @@
     <string name="save">save</string>
     <string name="estback"><![CDATA[<- estimate]]></string>
     <string name="tripfor"><![CDATA[trip overview ->]]></string>
-    <string name="pay"># paychecks</string>
+    <string name="pay"># of paychecks</string>
     <string name="money">$</string>
     <string name="all">Overall</string>
 </resources>

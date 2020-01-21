@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".EstimateActivity">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+        app:srcCompat="@drawable/end" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
@@ -53,12 +64,13 @@
 
     <TextView
         android:id="@+id/totalView"
-        android:layout_width="155dp"
+        android:layout_width="130dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="75dp"
         android:layout_weight="1"
         android:text="@string/all"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/unplanView" />
@@ -69,6 +81,7 @@
         android:layout_height="30dp"
         android:layout_weight="1"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/totalView"
         app:layout_constraintStart_toEndOf="@+id/totalView" />
@@ -80,6 +93,7 @@
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/totalView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,12 +102,13 @@
 
     <TextView
         android:id="@+id/unplanView"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="@string/unplanned"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entertainView" />
@@ -103,7 +118,8 @@
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/unplanView"
         app:layout_constraintStart_toEndOf="@+id/unplanView" />
@@ -115,6 +131,7 @@
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/unplanView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,12 +139,13 @@
 
     <TextView
         android:id="@+id/entertainView"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="@string/entertainment"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mealView" />
@@ -137,7 +155,8 @@
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/entertainView"
         app:layout_constraintStart_toEndOf="@+id/entertainView" />
@@ -149,6 +168,7 @@
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/entertainView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,12 +176,13 @@
 
     <TextView
         android:id="@+id/mealView"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="@string/meals"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transportView" />
@@ -171,7 +192,8 @@
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/mealView"
         app:layout_constraintStart_toEndOf="@+id/mealView" />
@@ -183,6 +205,7 @@
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/mealView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,12 +213,13 @@
 
     <TextView
         android:id="@+id/transportView"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="@string/transportation"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lodgeView" />
@@ -205,7 +229,8 @@
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/transportView"
         app:layout_constraintStart_toEndOf="@+id/transportView" />
@@ -217,6 +242,7 @@
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/transportView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -224,7 +250,7 @@
 
     <TextView
         android:id="@+id/lodgeView"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -232,14 +258,16 @@
         android:text="@string/lodging"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/lodgeFinal"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/lodgeView"
         app:layout_constraintStart_toEndOf="@+id/lodgeView" />
@@ -251,6 +279,7 @@
         android:layout_marginEnd="16dp"
         android:layout_weight="1"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/lodgeView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -260,7 +289,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/transparent"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -272,11 +301,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@android:color/transparent"
             android:text="@string/trip_overview"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -298,6 +327,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
@@ -306,6 +336,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
@@ -314,6 +345,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -330,11 +362,12 @@
 
         <TextView
             android:id="@+id/totalEView"
-            android:layout_width="wrap_content"
+            android:layout_width="66dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/estimate"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
@@ -344,16 +377,31 @@
             android:layout_weight="1"
             android:text="@string/actual"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/totalCalcView"
-            android:layout_width="wrap_content"
+            android:layout_width="67dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Total"
             android:textAlignment="center"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/verdictView"
+        android:layout_width="210dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        android:text="VERDICT"
+        android:textColor="#FFC107"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalFinal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
