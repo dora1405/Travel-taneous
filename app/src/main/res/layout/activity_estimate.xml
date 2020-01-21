@@ -6,22 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".EstimateActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/recon" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@android:color/transparent"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +22,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@color/colorPrimaryDark"
             android:text="@string/estimate"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -346,7 +335,6 @@
         tools:ignore="Autofill" />
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
