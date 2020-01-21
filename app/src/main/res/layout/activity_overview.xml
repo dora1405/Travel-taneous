@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".EstimateActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/end" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
@@ -260,7 +271,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/transparent"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -272,11 +283,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@android:color/transparent"
             android:text="@string/trip_overview"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
