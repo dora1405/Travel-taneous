@@ -58,6 +58,6 @@ To run the emulator/app:
 1. Now on the top middle of the screen next to the green play button, Nexus 6P API 22 should be shown as selected.
 1. Click on the green play button located on the top middle-right of the window. When the mouse hover over it, it should read “Run ‘app’(^R)” or go to top menu and click on "Run" > "Run 'app'"
 1. Emulator will show once Gradle Build is complete (you should see on the bottom something that reads "Gradle Build Running"
-1. If database is starting from null or empty
+1. If database is starting from null or empty:
 	* In Estimate section, click "Calculate/Update". This will set the categories' value to "0" to start. It will update the database for that branch.
 	* In Actual section, click "Save". This will set the categories' value to "0" to start. It will update the database for that branch.
