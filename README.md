@@ -3,7 +3,22 @@
 ## About the app
 For travelers who never know if they have the money to go on a trip until it's too late (flight became too expensive, didn't RSVP on time, etc.) - well no more! They can input how many paychecks they can start saving for the trip and the app calculates the portion that has to come out of each paycheck using the traveler's trip estimate. The traveler can then decide if they can afford to go or decline.
 
-This is also for travelers that want to compare how well they budgeted for the trip. They can compare which categories they went overbudget on and by how much (percentage), so if they see there's a recurring theme, then they can adjust those budget categories for future trips.
+<p align="center">
+  <img src="estimate.png" width= "300" />
+</p>
+
+Travelers can keep track of occuring trip costs as they occur in the Actual cost page. In the "add dollars" input field, the user can choose which expense category and then see that category's expense updated. User then click "Save" to update the database.
+
+<p align="center">
+  <img src="actual.png" width= "300" />
+</p>
+
+Travelers can also compare how well they budgeted for the trip. They can compare which categories they went overbudget on and by how much (percentage), so if they see there's a recurring theme, then they can adjust those budget categories for future trips.
+
+
+<p align="center">
+  <img src="overview.png" width= "300" />
+</p>
 
 Tech Stack:
 * Android Studio
