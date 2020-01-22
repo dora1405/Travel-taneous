@@ -9,8 +9,8 @@ This is also for travelers that want to compare how well they budgeted for the t
 ## Install Directions
 
 #### Download Java Development Kit
-* Go to: https://www.oracle.com/technetwork/java/javase/downloads/index.html
-* Click download icon for Java Platform (JDK) 13
+1. Go to: https://www.oracle.com/technetwork/java/javase/downloads/index.html
+1. Click download icon for Java Platform (JDK) 13
 * Scroll to bottom of page. In Java SE Development Kit section, click “Accept License Agreement” radio button and for macOS, click to download file ending with .dmg
 * Once download complete, open .dmg file in the Downloads folder
 * JDK pop up screen will ask to “double click on icon to install”, do it
