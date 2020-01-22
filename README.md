@@ -48,4 +48,16 @@ Do the following to install this project.
 1. Pop-up will state “You have checked out an Android Studio Project” and ask if you want to open it, select “Yes”
 1. Wait for Android Studio to set up.
 
-To run the emulator/app, click on the green play button located on the top middle-right of the window. When the mouse hover over it, it should read “Run ‘app’(^R)”
+To run the emulator/app:
+1. Go to Tools > AVD Manager > Select Nexus 6P
+1. For System image download Lolliopo/API 22 and/or above
+1. Accept License Agreement
+1. Wait for it to download. It'll take awhile depending on how many APIs you choose to download, but API 22 alone will work
+1. Click "Finish"
+1. If the "Next" button is not available, simply close the window and open up AVD Manager again > Select Nexus 6P and then click "Next" > click "Finish" > close window
+1. Now on the top middle of the screen next to the green play button, Nexus 6P API 22 should be shown as selected.
+1. Click on the green play button located on the top middle-right of the window. When the mouse hover over it, it should read “Run ‘app’(^R)” or go to top menu and click on "Run" > "Run 'app'"
+1. Emulator will show once Gradle Build is complete (you should see on the bottom something that reads "Gradle Build Running"
+1. If database is starting from null or 0
+	* In Estimate section, click "Calculate/Update". This will set the categories' value to "0" to start. It will update the database for that branch.
+	* In Actual section, click "Save". This will set the categories' value to "0" to start. It will update the database for that branch.
