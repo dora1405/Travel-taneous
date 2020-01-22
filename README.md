@@ -5,6 +5,10 @@ For travelers who never know if they have the money to go on a trip until it's t
 
 This is also for travelers that want to compare how well they budgeted for the trip. They can compare which categories they went overbudget on and by how much (percentage), so if they see there's a recurring theme, then they can adjust those budget categories for future trips.
 
+Tech Stack:
+* Android Studio
+* Kotlin
+* Firebase real-time database
 
 ## Getting Started
 
