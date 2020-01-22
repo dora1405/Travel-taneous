@@ -104,6 +104,7 @@ class ActualActivity : AppCompatActivity() {
         updateBtn.setOnClickListener {
             updateTotal()
             radioGroup.clearCheck()
+            addMoney.text.clear()
         }
     }
 
